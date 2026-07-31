@@ -1,0 +1,278 @@
+{
+  "summary": {
+    "health_score": 38,
+    "business_type": "Educational / Informational — Digital museum for ancient Chinese architectural heritage",
+    "domain": "ancient-chinese-architecture.com",
+    "pages_crawled": 24,
+    "platform": "Astro 5 static site with Tailwind CSS",
+    "top_findings": [
+      "No sitemap.xml — 24 pages not submitted for search engine discovery",
+      "No robots.txt — zero crawl directives",
+      "No canonical tags on any page",
+      "No structured data / JSON-LD schema anywhere on the site",
+      "No Open Graph or Twitter Card tags — no social sharing previews"
+    ],
+    "quick_wins": [
+      "Install @astrojs/sitemap integration for automatic sitemap generation",
+      "Add canonical tags to shared Layout.astro (single change, all pages benefit)",
+      "Add Organization + WebSite JSON-LD schema to Layout.astro",
+      "Add Open Graph and Twitter Card meta tags to Layout.astro",
+      "Fix truncated meta descriptions by adding dedicated 150-160 char fields"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 22,
+      "what_works": [
+        "Clean, descriptive URL structure with consistent trailing slashes",
+        "Proper UTF-8 charset and viewport declarations",
+        "Rich internal linking between sections",
+        "Proper HTML lang attribute (lang=en)",
+        "Single minified CSS file per page from Astro build"
+      ],
+      "findings": [
+        {
+          "title": "No robots.txt",
+          "severity": "Critical",
+          "description": "Search engines have zero crawl directives. Crawl budget may be wasted on irrelevant paths.",
+          "recommendation": "Create public/robots.txt pointing to sitemap and allowing all paths."
+        },
+        {
+          "title": "No sitemap.xml",
+          "severity": "Critical",
+          "description": "24 pages across 8 sections are not being proactively submitted to search engines for discovery.",
+          "recommendation": "Install @astrojs/sitemap integration for automatic sitemap generation."
+        },
+        {
+          "title": "No canonical tags",
+          "severity": "Critical",
+          "description": "Every page is missing <link rel=canonical>. While no duplicate paths exist, canonicals protect against parameter-based duplicates.",
+          "recommendation": "Add canonical link to Layout.astro using Astro.url.pathname."
+        },
+        {
+          "title": "No hreflang annotations",
+          "severity": "High",
+          "description": "The site is English-only but does not declare this with hreflang tags.",
+          "recommendation": "Add <link rel=alternate hreflang=en> to Layout.astro."
+        },
+        {
+          "title": "Dead-end href=# links",
+          "severity": "Medium",
+          "description": "Multiple notable buildings in dynasty data link to # for non-existent pages.",
+          "recommendation": "Replace with external links or remove until pages exist."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 68,
+      "what_works": [
+        "Strong subject-matter expertise with accurate technical terminology",
+        "Long-form, substantive content on building and dynasty detail pages",
+        "Clear heading hierarchy (H1 > H2 > sidebar)",
+        "FAQ page uses semantic details/summary widgets",
+        "Scannable feature lists with visual checkmarks"
+      ],
+      "findings": [
+        {
+          "title": "Truncated meta descriptions on 3 pages",
+          "severity": "High",
+          "description": "Forbidden City detail, Dougong, and Roofs pages have meta descriptions cut off mid-sentence because the full description field exceeds 160 characters.",
+          "recommendation": "Add a metaDescription field (150-160 chars) to Building and Element data interfaces."
+        },
+        {
+          "title": "No author attribution",
+          "severity": "Medium",
+          "description": "No author bylines, bios, or credentials visible on any page, weakening E-E-A-T signals for an educational site.",
+          "recommendation": "Add author name and bio to About page, add meta name=author tag."
+        },
+        {
+          "title": "No cited sources",
+          "severity": "Medium",
+          "description": "Content is presented without academic citations despite referencing specific historians like Liang Sicheng.",
+          "recommendation": "Add references section to building and dynasty pages."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 35,
+      "what_works": [
+        "Descriptive, keyword-rich title tags across all pages",
+        "Meta descriptions present on all pages (3 truncated)",
+        "Proper single H1 per page with clear topic focus",
+        "Internal linking uses descriptive anchor text"
+      ],
+      "findings": [
+        {
+          "title": "No Open Graph tags",
+          "severity": "Critical",
+          "description": "Zero og:title, og:description, og:image, og:url, or og:type tags. Shared links show no preview.",
+          "recommendation": "Add full OG tag set to Layout.astro with page-specific overrides."
+        },
+        {
+          "title": "No Twitter Card tags",
+          "severity": "Critical",
+          "description": "No twitter:card, twitter:title, twitter:description, or twitter:image tags.",
+          "recommendation": "Add Twitter Card tags (summary_large_image) to Layout.astro."
+        },
+        {
+          "title": "Title tag inconsistency",
+          "severity": "Medium",
+          "description": "Some pages use | Ancient Chinese Architecture suffix, homepage uses a longer format without suffix.",
+          "recommendation": "Standardize: Page Title | Ancient Chinese Architecture for all sub-pages."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 0,
+      "what_works": [],
+      "findings": [
+        {
+          "title": "Zero structured data sitewide",
+          "severity": "Critical",
+          "description": "Not a single page contains JSON-LD, Microdata, or RDFa. This prevents rich results and limits SERP visibility.",
+          "recommendation": "Add Organization + WebSite schema to Layout.astro, BreadcrumbList to detail pages, FAQPage to /faq/."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 62,
+      "what_works": [
+        "Static HTML with minimal JavaScript (only IntersectionObserver)",
+        "Single minified CSS file per page",
+        "SVG favicon eliminates extra image request",
+        "Font loaded with font-display: swap"
+      ],
+      "findings": [
+        {
+          "title": "Google Fonts from external CDN",
+          "severity": "High",
+          "description": "2 DNS lookups + render-blocking CSS for Outfit font from Google CDN.",
+          "recommendation": "Self-host the Outfit font as woff2 files."
+        },
+        {
+          "title": "Images from Unsplash CDN",
+          "severity": "High",
+          "description": "All building and element images loaded from images.unsplash.com with no local optimization.",
+          "recommendation": "Download and serve images locally using Astro Image component."
+        },
+        {
+          "title": "No lazy loading on below-fold images",
+          "severity": "High",
+          "description": "Only the hero image uses loading=eager; no other images use loading=lazy.",
+          "recommendation": "Add loading=lazy decoding=async to all below-fold images."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 20,
+      "what_works": [
+        "Hero image has descriptive alt text",
+        "Unsplash URLs include width and quality parameters"
+      ],
+      "findings": [
+        {
+          "title": "No og:image",
+          "severity": "Critical",
+          "description": "Zero social sharing previews. Links shared on social media show no image.",
+          "recommendation": "Create 1200x630 default OG image and page-specific OG images."
+        },
+        {
+          "title": "Data model images lack alt text",
+          "severity": "Medium",
+          "description": "Building and Element TypeScript interfaces have images arrays but no alt text fields.",
+          "recommendation": "Add alt field to image data and populate for all entries."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 40,
+      "what_works": [
+        "Highly citable, factual content with specific dates, dimensions, and names",
+        "Semantic HTML structure with proper heading hierarchy",
+        "FAQ content in semantic details/summary widgets"
+      ],
+      "findings": [
+        {
+          "title": "No llms.txt",
+          "severity": "Medium",
+          "description": "No llms.txt or llms-full.txt at site root for LLM crawler guidance.",
+          "recommendation": "Create public/llms.txt listing all sections with descriptions."
+        },
+        {
+          "title": "No author metadata for citation credit",
+          "severity": "Medium",
+          "description": "LLMs that cite content by referencing author names have no author to attribute to.",
+          "recommendation": "Add author meta tags and schema."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1 (2-4 hours)",
+        "items": [
+          "Install @astrojs/sitemap and generate sitemap.xml",
+          "Create public/robots.txt",
+          "Add canonical tags to Layout.astro",
+          "Add Open Graph + Twitter Card meta tags to Layout.astro",
+          "Fix truncated meta descriptions (add metaDescription field)",
+          "Create default 1200x630 OG image"
+        ]
+      },
+      {
+        "name": "Phase 2: Structured Data",
+        "timeframe": "Weeks 1-2 (3-5 hours)",
+        "items": [
+          "Add Organization + WebSite JSON-LD to Layout.astro",
+          "Add BreadcrumbList schema to detail pages",
+          "Add FAQPage schema to /faq/",
+          "Add TouristAttraction schema to building pages"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 1 (8-16 hours)",
+        "items": [
+          "Add author attribution and bio",
+          "Add source citations to building/dynasty content",
+          "Create actual blog post pages",
+          "Fix href=# placeholder links",
+          "Create llms.txt"
+        ]
+      },
+      {
+        "name": "Phase 4: Performance & Images",
+        "timeframe": "Month 2 (4-8 hours)",
+        "items": [
+          "Migrate images from Unsplash to local with Astro Image",
+          "Add loading=lazy to below-fold images",
+          "Add resource preloading for hero image and fonts",
+          "Self-host Google Fonts",
+          "Add explicit image dimensions and srcset"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "findings_files": [
+      "findings/technical.md",
+      "findings/content.md",
+      "findings/schema.md",
+      "findings/performance.md",
+      "findings/images.md",
+      "findings/geo.md",
+      "findings/visual.md"
+    ]
+  }
+}

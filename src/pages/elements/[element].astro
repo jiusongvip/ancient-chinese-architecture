@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { elements } from '../../data/elements';
+
+export function getStaticPaths() {
+  return elements.map(e => ({ params: { element: e.id } }));
+}
+
+const { element } = Astro.params;
+const el = elements.find(e => e.id === element);
+if (!el) return Astro.redirect('/elements/');
+---
+
+ <Layout title={`${el.name} | Ancient Chinese Architecture`} description={el.description}>
+   <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "BreadcrumbList",
+       "itemListElement": [
+         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ancient-chinese-architecture.com/" },
+         { "@type": "ListItem", "position": 2, "name": "Elements", "item": "https://ancient-chinese-architecture.com/elements/" },
+         { "@type": "ListItem", "position": 3, "name": el.name, "item": null }
+       ]
+     }
+   </script>
+   <Nav />
+
+   <section class="pt-24 pb-8 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <a href="/elements" class="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-ink transition-colors mb-6">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Elements
+      </a>
+      <p class="text-vermillion text-sm font-medium mb-2">{el.subtitle}</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">{el.name}</h1>
+      <p class="text-lg text-ink-muted max-w-[70ch] leading-relaxed">{el.description}</p>
+    </div>
+  </section>
+
+  <section class="py-2 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <img src={el.image} alt={el.name} class="w-full aspect-[21/9] object-cover rounded-2xl" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="py-12 px-6 bg-stone">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
+        <div class="space-y-8">
+          {el.sections.map((s, i) => (
+            <div>
+              <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
+              <p class="text-ink-muted leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <div>
+          <div class="sticky top-24 space-y-6">
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h3 class="font-display font-semibold text-ink mb-4">Key Points</h3>
+              <ul class="space-y-3">
+                {el.features.map(f => (
+                  <li class="flex items-start gap-3 text-sm text-ink-muted">
+                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {el.relatedElements.length > 0 && (
+              <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+                <h3 class="font-display font-semibold text-ink mb-3">Related Elements</h3>
+                <div class="space-y-2">
+                  {el.relatedElements.map(r => (
+                    <a href={r.href} class="block text-sm text-ink-muted hover:text-vermillion transition-colors py-1.5 border-b border-stone-dark/30 last:border-0">{r.name}</a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

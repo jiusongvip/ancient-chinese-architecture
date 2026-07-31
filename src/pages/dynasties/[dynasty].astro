@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { dynasties } from '../../data/dynasties';
+
+export function getStaticPaths() {
+  return dynasties.map(d => ({ params: { dynasty: d.id } }));
+}
+
+const { dynasty } = Astro.params;
+const d = dynasties.find(d => d.id === dynasty);
+if (!d) return Astro.redirect('/dynasties/');
+---
+
+ <Layout title={`${d.name} Dynasty Architecture | Ancient Chinese Architecture`} description={d.summary}>
+   <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "BreadcrumbList",
+       "itemListElement": [
+         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ancient-chinese-architecture.com/" },
+         { "@type": "ListItem", "position": 2, "name": "Dynasties", "item": "https://ancient-chinese-architecture.com/dynasties/" },
+         { "@type": "ListItem", "position": 3, "name": `${d.name} Dynasty`, "item": null }
+       ]
+     }
+   </script>
+   <Nav />
+
+   <section class="pt-24 pb-8 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <a href="/dynasties" class="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-ink transition-colors mb-6">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Dynasties
+      </a>
+      <div class="flex flex-wrap items-center gap-4 mb-4">
+        <span class="px-3 py-1.5 rounded-full bg-vermillion/10 text-vermillion text-sm font-medium">{d.years}</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">{d.name} Dynasty Architecture</h1>
+      <p class="text-lg text-ink-muted max-w-[70ch]">{d.summary}</p>
+    </div>
+  </section>
+
+  <section class="py-2 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <img src={d.image} alt={`${d.name} Dynasty architecture`} class="w-full aspect-[21/9] object-cover rounded-2xl" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="py-12 px-6 bg-stone">
+   <div class="max-w-[1400px] mx-auto">
+     <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12">
+       <div>
+         <h2 class="font-display font-bold text-2xl text-ink mb-6">Overview</h2>
+         <p class="text-ink-muted leading-relaxed text-lg">{d.description}</p>
+       </div>
+       <div class="space-y-8">
+         {d.sections.map(s => (
+           <div>
+             <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
+             <p class="text-ink-muted leading-relaxed">{s.body}</p>
+           </div>
+         ))}
+       </div>
+     </div>
+     <div class="lg:col-span-2">
+       <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+         <h3 class="font-display font-semibold text-ink mb-4">Key Features</h3>
+         <ul class="space-y-3">
+            {d.features.map(f => (
+              <li class="flex items-start gap-3 text-sm text-ink-muted">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {d.notableBuildings.length > 0 && (
+    <section class="py-12 px-6 bg-stone-light">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-display font-bold text-2xl text-ink mb-6">Notable Buildings</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {d.notableBuildings.map(b => (
+            <a href={b.href} class="group block p-5 rounded-xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-md transition-all">
+              <h3 class="font-display font-semibold text-ink group-hover:text-vermillion transition-colors">{b.name}</h3>
+              <span class="text-xs text-ink-muted mt-1 block">{d.name} Dynasty</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="py-12 px-6 bg-stone">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="font-display font-bold text-2xl text-ink mb-6">Navigate Dynasties</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        {dynasties.map(dd => (
+          <a href={`/dynasties/${dd.id}`} class={`block p-4 rounded-xl border transition-all text-center ${dd.id === dynasty ? 'border-vermillion/40 bg-vermillion/5' : 'border-stone-dark/30 bg-stone-light hover:border-vermillion/20'}`}>
+            <span class="font-display font-semibold text-ink text-sm block">{dd.name}</span>
+            <span class="text-xs text-ink-muted">{dd.years}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+ const faqs = [
+   { q: 'What is the oldest surviving wooden building in China?', a: 'The main hall of Nanchan Temple on Mount Wutai, built in 782 CE during the Tang dynasty, is the oldest surviving timber-frame structure in China. The three-bay hall, measuring roughly 11.8 by 10 meters, features massive dougong brackets characteristic of Tang structural boldness. It predates the nearby Foguang Temple East Hall (857 CE) by 75 years, and its survival through over 1,200 years of earthquakes and wars testifies to the extraordinary durability of Chinese timber construction. Both temples are located in Shanxi Province and are open to visitors, though Nanchan Temple is more remote and receives fewer tourists.'},
+   { q: 'Why do traditional Chinese roofs curve upward?', a: 'The distinctive upward sweep of Chinese roof eaves serves practical, symbolic, and aesthetic purposes. Structurally, the curve throws rainwater clear of the timber walls, preventing rot and extending the building\'s life. In southern China, where monsoon rains are heavy, the pronounced upward curve is especially functional. Symbolically, the upturned eaves are said to ward off evil spirits — it was believed that malevolent forces could only travel in straight lines and would be deflected upward. The curve also expresses aspiration toward heaven, visually lifting the building\'s silhouette. Aesthetically, the sweeping roof creates a far lighter and more graceful profile than a straight slope, giving Chinese architecture its characteristic elegance.'},
+   { q: 'What is a dougong and why is it important?', a: 'Dougong is an interlocking wooden bracket system placed atop columns to support the wide, overhanging eaves characteristic of Chinese architecture. Assembled entirely without nails or glue, it relies on precise mortise-and-tenon joinery. Structurally, dougong transfers roof weight outward from the column to the beam, enabling dramatic roof overhangs that protect timber walls from rain. Crucially, the loose joinery acts as a seismic damper: during earthquakes, friction between interlocking wooden pieces absorbs and dissipates energy, making dougong buildings remarkably earthquake-resistant. The 67-meter Yingxian Pagoda, built in 1056 CE, has survived over 40 earthquakes thanks to its 54 different dougong bracket types. Beyond structure, dougong also became a status marker — the number of bracket tiers and their decorative complexity increased with the building\'s importance.'},
+   { q: 'How many roof beasts can a Chinese building have?', a: 'The number of ridge beasts (zoushou) on a roof indicates the building\'s rank and importance. The Hall of Supreme Harmony in the Forbidden City has the maximum 10 — the only building in China permitted this number. Lesser imperial buildings have 7 or 5, while official buildings typically have 3, and ordinary structures have 1 or none. The sequence always begins with a mounted immortal figure riding a phoenix, followed by an odd number of mythical beasts in a strict order: dragon, phoenix, lion, heavenly horse, sea horse, xiapi (a mythical flying horse), suanni (dragon-lion), xiezhi (justice beast), douniu (struggling bull), and xingshi (running lion). Each beast carries specific protective symbolism — the dragon represents imperial power, the phoenix brings prosperity, and the xiezhi distinguishes right from wrong.'},
+   { q: 'What colors are used in Chinese architecture and why?', a: 'Color in Chinese architecture follows a strict hierarchy rooted in cosmology, social rank, and symbolism. Yellow was reserved exclusively for the emperor — it represents the center of the universe and was forbidden for anyone else to use on roofs. Red symbolizes happiness, vitality, and good fortune; it dominates doors, columns, and walls in palaces and temples. Green represents growth, spring, and harmony, commonly used on roofs of princely residences and important temples. Blue-black roof tiles were used for certain temple buildings, representing heaven — the Temple of Heaven\'s Hall of Prayer for Good Harvests has deep blue glazed tiles. White walls with grey-black tiles characterize the restrained vernacular architecture of southern China, especially the Huizhou and Jiangnan regions, where the monochrome palette harmonizes with misty mountain landscapes.'},
+   { q: 'Where can I see the best examples of Tang dynasty architecture?', a: 'The best surviving Tang dynasty timber buildings are concentrated in Shanxi Province: Foguang Temple (857 CE) and Nanchan Temple (782 CE) are the two oldest wooden structures in China. Both are accessible from Taiyuan, Shanxi\'s capital, though they require a car — public transport is limited. The Great Wild Goose Pagoda in Xi\'an, though a brick structure, preserves Tang proportions and is a UNESCO World Heritage Site. In Japan, several temples preserve Tang-influenced architecture from the same period, including Horyu-ji and Toshodai-ji in Nara — these are particularly valuable because many Tang-era buildings in China itself were lost over the centuries. Korea\'s Silla-period temples, such as Bulguksa in Gyeongju, also reflect Tang architectural influence, demonstrating the international reach of Tang style.'},
+   { q: 'What is the siheyuan courtyard layout?', a: 'A siheyuan is a traditional Chinese courtyard residence with buildings arranged around a central open space on all four sides. The main hall faces south to capture maximum winter sunlight and block cold northern winds — a passive solar design principle. Senior family members occupied the main hall, while the eastern and western side halls housed younger family members according to seniority, and the southern reverse hall served as an entrance and servants\' quarters. A screen wall (yingbi) inside the entrance gate ensured privacy by blocking direct views from the street. The courtyard itself — often planted with trees and flowers — served as outdoor living space, light well, and the symbolic center of family life. Larger compounds could contain multiple linked courtyards, with the innermost reserved for the most senior family members. This layout embodied Confucian hierarchy and the cosmological idea that the open courtyard mediates between heaven (round sky) and earth (square dwelling).'}
+ ];
+---
+
+ <Layout title="FAQ | Ancient Chinese Architecture Questions Answered" description="Frequently asked questions about ancient Chinese architecture, including dougong brackets, roof forms, courtyard layouts, and dynasty styles.">
+   <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "FAQPage",
+       "mainEntity": [
+         {"@type": "Question", "name": faqs[0].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[0].a }},
+         {"@type": "Question", "name": faqs[1].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[1].a }},
+         {"@type": "Question", "name": faqs[2].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[2].a }},
+         {"@type": "Question", "name": faqs[3].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[3].a }},
+         {"@type": "Question", "name": faqs[4].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[4].a }},
+         {"@type": "Question", "name": faqs[5].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[5].a }},
+         {"@type": "Question", "name": faqs[6].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[6].a }}
+       ]
+     }
+   </script>
+   <Nav />
+   <section class="pt-24 pb-16 px-6 bg-stone-light">
+    <div class="max-w-[900px] mx-auto">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">FAQ</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Frequently Asked Questions</h1>
+      <p class="text-lg text-ink-muted max-w-[65ch]">Answers to the most common questions about ancient Chinese architecture, from dougong brackets to courtyard layouts.</p>
+    </div>
+  </section>
+  <section class="py-12 px-6 bg-stone-light">
+    <div class="max-w-[900px] mx-auto space-y-4">
+      <h2 class="font-display font-bold text-2xl text-ink mb-6">Questions & Answers</h2>
+      {faqs.map((faq, i) => (
+        <details class="group rounded-2xl border border-stone-dark/30 bg-stone p-6 cursor-pointer" open={i === 0}>
+          <summary class="font-display font-semibold text-ink list-none flex items-center justify-between gap-4 marker:content-none">
+            {faq.q}
+            <svg class="w-4 h-4 flex-shrink-0 text-ink-muted group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="mt-4 text-ink-muted leading-relaxed">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+  <Footer />
+</Layout>

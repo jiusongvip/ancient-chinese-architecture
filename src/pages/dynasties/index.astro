@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { dynasties } from '../../data/dynasties';
+---
+
+<Layout title="Architecture Through the Dynasties | Chinese Architecture" description="Interactive timeline of Chinese architectural history from Shang to Qing. Compare styles and learn how each dynasty shaped China's built heritage.">
+  <Nav />
+
+  <section class="pt-24 pb-16 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">Timeline</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Chinese Architecture Through the Dynasties</h1>
+      <p class="text-lg text-ink-muted max-w-[65ch]">Each dynasty left its distinctive mark on China's architectural heritage. Explore 3,000 years of evolution in structure, style, and symbolism.</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto space-y-8">
+      {dynasties.map((d, i) => (
+        <a href={`/dynasties/${d.id}`} class="group block rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-lg transition-all duration-300 overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-[280px_1fr]">
+            <div class="aspect-[4/3] md:aspect-auto md:h-full overflow-hidden bg-stone-dark">
+              <img src={d.image} alt={`${d.name} Dynasty architecture`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="p-6 md:p-8 flex flex-col justify-center">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 rounded-full bg-vermillion/10 text-vermillion text-xs font-medium">{d.years}</span>
+              </div>
+              <h2 class="font-display font-bold text-2xl text-ink mb-2 group-hover:text-vermillion transition-colors">{d.name} Dynasty</h2>
+              <p class="text-ink-muted leading-relaxed mb-4">{d.summary}</p>
+              <h3 class="font-display font-semibold text-sm text-ink mb-2">Key Features</h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {d.features.slice(0, 3).map(f => (
+                  <span class="text-xs text-ink-muted/70 bg-stone-light px-2.5 py-1 rounded-md">{f}</span>
+                ))}
+                {d.features.length > 3 && <span class="text-xs text-ink-muted/50 px-2.5 py-1">+{d.features.length - 3} more</span>}
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-sm font-medium text-vermillion group-hover:gap-2.5 transition-all">
+                Explore {d.name} architecture
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

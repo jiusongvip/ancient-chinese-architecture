@@ -1,0 +1,163 @@
+---
+---
+
+<section class="py-20 px-6 bg-stone" id="dynasty-identifier">
+  <div class="max-w-[900px] mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="text-gold text-sm font-medium tracking-widest uppercase mb-3 font-display">On-Site Tool</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">Identify a Building by Eye</h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">Standing in front of a Chinese building? Answer three visual questions to narrow down which dynasty it belongs to.</p>
+    </div>
+
+    <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-8 reveal">
+      <div class="space-y-8">
+        <div>
+          <label class="block font-display font-semibold text-ink text-sm mb-3">1. What does the roof look like?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="roof-options">
+            <button data-roof="hip" class="roof-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block text-2xl mb-1">⛩️</span>
+              <span class="block font-display font-semibold text-ink text-xs">Hip Roof</span>
+              <span class="block text-ink-muted text-[10px]">Slopes on all 4 sides</span>
+            </button>
+            <button data-roof="hip-gable" class="roof-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block text-2xl mb-1">🏯</span>
+              <span class="block font-display font-semibold text-ink text-xs">Hip-Gable</span>
+              <span class="block text-ink-muted text-[10px]">Hip top, gable below</span>
+            </button>
+            <button data-roof="gable" class="roof-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block text-2xl mb-1">🏠</span>
+              <span class="block font-display font-semibold text-ink text-xs">Gable Roof</span>
+              <span class="block text-ink-muted text-[10px]">Simple pitched roof</span>
+            </button>
+            <button data-roof="pyramidal" class="roof-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block text-2xl mb-1">🔺</span>
+              <span class="block font-display font-semibold text-ink text-xs">Pyramidal</span>
+              <span class="block text-ink-muted text-[10px]">Rises to central point</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-display font-semibold text-ink text-sm mb-3">2. How complex are the bracket sets (dougong) under the eaves?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="dougong-options">
+            <button data-dougong="massive" class="dougong-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block font-display font-semibold text-ink text-sm">Massive & Structural</span>
+              <span class="block text-ink-muted text-[10px]">Large wooden blocks, clearly load-bearing</span>
+            </button>
+            <button data-dougong="intricate" class="dougong-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block font-display font-semibold text-ink text-sm">Smaller & Intricate</span>
+              <span class="block text-ink-muted text-[10px]">Multiple tiers, refined proportions</span>
+            </button>
+            <button data-dougong="decorative" class="dougong-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="block font-display font-semibold text-ink text-sm">Mostly Decorative</span>
+              <span class="block text-ink-muted text-[10px]">Small brackets, more ornament than structure</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-display font-semibold text-ink text-sm mb-3">3. What is the dominant roof color?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="color-options">
+            <button data-color="yellow" class="color-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="inline-block w-8 h-8 rounded-full bg-amber-400 mb-2"></span>
+              <span class="block font-display font-semibold text-ink text-xs">Yellow Glaze</span>
+            </button>
+            <button data-color="green" class="color-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="inline-block w-8 h-8 rounded-full bg-emerald-500 mb-2"></span>
+              <span class="block font-display font-semibold text-ink text-xs">Green Glaze</span>
+            </button>
+            <button data-color="blue" class="color-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="inline-block w-8 h-8 rounded-full bg-sky-700 mb-2"></span>
+              <span class="block font-display font-semibold text-ink text-xs">Blue-Black</span>
+            </button>
+            <button data-color="grey" class="color-btn p-4 rounded-xl border border-stone-dark/40 bg-stone hover:border-gold/40 hover:bg-gold/5 transition-all text-center">
+              <span class="inline-block w-8 h-8 rounded-full bg-stone-500 mb-2"></span>
+              <span class="block font-display font-semibold text-ink text-xs">Grey Tile</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="identifier-result" class="mt-8 hidden">
+        <div class="rounded-xl border border-gold/30 bg-gold/5 p-6">
+          <p class="text-sm text-ink-muted mb-1">Most likely dynasty:</p>
+          <h3 class="font-display font-bold text-2xl text-ink mb-2" id="result-dynasty"></h3>
+          <p class="text-sm text-ink-muted leading-relaxed" id="result-desc"></p>
+          <a id="result-link" href="#" class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-vermillion hover:text-vermillion-dark transition-colors">
+            Learn more about this dynasty
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <p id="identifier-hint" class="text-center text-sm text-ink-muted mt-6">Select one option from each row above, and the dynasty will appear here.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roof-btn.active, .dougong-btn.active, .color-btn.active {
+    border-color: rgba(184, 150, 62, 0.6);
+    background-color: rgba(184, 150, 62, 0.1);
+  }
+</style>
+
+<script>
+  const matches = {
+    'hip-massive-yellow': { dynasty: 'Ming Dynasty', desc: 'Hip roof, massive dougong, yellow glaze — this is the imperial architecture of the Ming period. The Forbidden City is the definitive example.', href: '/dynasties/ming' },
+    'hip-massive-green': { dynasty: 'Qing Dynasty', desc: 'Hip roof, massive structure with green glaze — typical of Qing imperial gardens and secondary palace halls. The Summer Palace has many examples.', href: '/dynasties/qing' },
+    'hip-intricate-yellow': { dynasty: 'Ming Dynasty', desc: 'Intricate dougong under a hip roof with yellow glaze — late Ming or early Qing imperial architecture.', href: '/dynasties/ming' },
+    'hip-intricate-green': { dynasty: 'Qing Dynasty', desc: 'Hip roof with intricate dougong and green glaze — Qing dynasty garden and temple architecture at its most ornate.', href: '/dynasties/qing' },
+    'hip-gable-massive-': { dynasty: 'Tang Dynasty', desc: 'Hip-and-gable roof with massive, structural dougong. The bold, wide eaves are unmistakably Tang — China\'s architectural golden age.', href: '/dynasties/tang' },
+    'hip-gable-intricate-': { dynasty: 'Song Dynasty', desc: 'Hip-and-gable roof with smaller, more intricate dougong and upward-curving eaves. Classic Song refinement and elegance.', href: '/dynasties/song' },
+    'hip-gable-decorative-': { dynasty: 'Qing Dynasty', desc: 'Hip-and-gable roof with decorative dougong — Qing dynasty elaboration of earlier Song and Ming forms.', href: '/dynasties/qing' },
+    'gable--grey': { dynasty: 'Ming-Qing Vernacular', desc: 'Simple gable roof with grey tiles — this is vernacular Chinese architecture, common in residential buildings from the Ming period onward.', href: '/dynasties/ming' },
+    'gable-massive-': { dynasty: 'Han Dynasty', desc: 'Simple gable with massive structural elements — reminiscent of early Chinese timber-frame construction from the Han period.', href: '/dynasties/han' },
+    'pyramidal--blue': { dynasty: 'Qing Dynasty', desc: 'Pyramidal roof with blue-black glaze — the Temple of Heaven\'s Hall of Prayer for Good Harvests is the definitive example of this rare and striking combination.', href: '/buildings/temple-of-heaven' },
+    'pyramidal--green': { dynasty: 'Song-Qing', desc: 'Pyramidal roof with green glaze — common on pagodas and pavilions across multiple dynasties, especially from Song through Qing.', href: '/dynasties/song' },
+    'pyramidal--yellow': { dynasty: 'Ming Dynasty', desc: 'Pyramidal roof with yellow glaze — imperial pavilions and ceremonial structures of the Ming period.', href: '/dynasties/ming' },
+  };
+
+  function getPartialMatch(roof, dougong, color) {
+    const keys = [
+      `${roof}-${dougong}-${color}`,
+      `${roof}-${dougong}-`,
+      `${roof}--${color}`,
+      `--${color}`,
+    ];
+    for (const k of keys) {
+      const candidates = Object.entries(matches).filter(([key]) => key.startsWith(k));
+      if (candidates.length > 0) return candidates[0][1];
+    }
+    return null;
+  }
+
+  let selected = { roof: '', dougong: '', color: '' };
+
+  function updateSelection(category, value, btn) {
+    selected[category] = value;
+    document.querySelectorAll(`.${category}-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    checkMatch();
+  }
+
+  function checkMatch() {
+    const result = getPartialMatch(selected.roof, selected.dougong, selected.color);
+    const resultDiv = document.getElementById('identifier-result');
+    const hint = document.getElementById('identifier-hint');
+    if (result && (selected.roof || selected.dougong || selected.color)) {
+      document.getElementById('result-dynasty').textContent = result.dynasty;
+      document.getElementById('result-desc').textContent = result.desc;
+      document.getElementById('result-link').href = result.href;
+      resultDiv.classList.remove('hidden');
+      hint.classList.add('hidden');
+    } else if (!selected.roof && !selected.dougong && !selected.color) {
+      resultDiv.classList.add('hidden');
+      hint.classList.remove('hidden');
+    }
+  }
+
+  document.querySelectorAll('.roof-btn').forEach(b => b.addEventListener('click', () => updateSelection('roof', b.dataset.roof, b)));
+  document.querySelectorAll('.dougong-btn').forEach(b => b.addEventListener('click', () => updateSelection('dougong', b.dataset.dougong, b)));
+  document.querySelectorAll('.color-btn').forEach(b => b.addEventListener('click', () => updateSelection('color', b.dataset.color, b)));
+</script>

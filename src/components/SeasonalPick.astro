@@ -1,0 +1,59 @@
+---
+import { buildings } from '../data/buildings';
+
+const month = new Date().getMonth();
+
+type SeasonPick = { month: number; name: string; buildingId: string; reason: string };
+
+const picks: SeasonPick[] = [
+  { month: 0, name: 'January', buildingId: 'forbidden-city', reason: 'Winter light and smaller crowds make this the best time to photograph the Forbidden City\'s golden roofs against a crisp blue sky.' },
+  { month: 1, name: 'February', buildingId: 'temple-of-heaven', reason: 'Chinese New Year often falls in February — the Temple of Heaven park comes alive with traditional festivities, and winter skies make the blue roof tiles pop.' },
+  { month: 2, name: 'March', buildingId: 'temple-of-heaven', reason: 'Early spring mornings at the Temple of Heaven are magical: plum blossoms begin to bloom and local seniors practice tai chi in the park.' },
+  { month: 3, name: 'April', buildingId: 'summer-palace', reason: 'April is peak bloom at the Summer Palace. Magnolias, peach blossoms, and the first lotus leaves appear on Kunming Lake.' },
+  { month: 4, name: 'May', buildingId: 'foguang-temple', reason: 'May brings perfect mountain weather to Shanxi. The approach to Foguang Temple is lined with wildflowers, and temperatures are ideal for exploring.' },
+  { month: 5, name: 'June', buildingId: 'summer-palace', reason: 'Summer begins at the Summer Palace. The Long Corridor provides shade, and the gardens are at their most lush.' },
+  { month: 6, name: 'July', buildingId: 'forbidden-city', reason: 'Long daylight hours give you maximum time in the Forbidden City. Arrive at opening (8:30am) to beat both crowds and heat.' },
+  { month: 7, name: 'August', buildingId: 'great-wall', reason: 'August mornings at Mutianyu are spectacular — the wall is often shrouded in mist that burns off to reveal dramatic mountain views.' },
+  { month: 8, name: 'September', buildingId: 'foguang-temple', reason: 'September is the sweet spot for Shanxi: harvest season colors, comfortable hiking weather, and few tourists.' },
+  { month: 9, name: 'October', buildingId: 'great-wall', reason: 'October is Great Wall month. Autumn foliage turns the mountains into a mosaic of red and gold, and the crisp air gives the clearest views.' },
+  { month: 10, name: 'November', buildingId: 'yingxian-pagoda', reason: 'November\'s low, golden sunlight is the photographer\'s dream — the ancient pagoda glows against a backdrop of bare trees and clear Shanxi skies.' },
+  { month: 11, name: 'December', buildingId: 'forbidden-city', reason: 'December snowfall transforms the Forbidden City. The vermillion walls against white snow is one of the most iconic images in Chinese architecture.' },
+];
+
+const pick = picks[month];
+const bld = buildings.find(b => b.id === pick.buildingId);
+if (!bld) throw new Error(`Building ${pick.buildingId} not found`);
+---
+
+{pick && bld && (
+  <section class="py-20 px-6 bg-stone">
+    <div class="max-w-[1000px] mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-jade text-sm font-medium tracking-widest uppercase mb-3 font-display">Right Now</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-3">Where to Go in {pick.name}</h2>
+        <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">A seasonal recommendation based on weather, crowds, and what's at its best this month.</p>
+      </div>
+
+      <a href={`/buildings/${bld.id}`} class="group block rounded-2xl border border-jade/20 bg-stone-light hover:border-jade/40 hover:shadow-lg transition-all duration-300 overflow-hidden reveal">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
+          <div class="aspect-[4/3] md:aspect-auto overflow-hidden">
+            <img src={bld.images[0]} alt={bld.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full bg-jade/90 text-white text-xs font-medium">{bld.dynasty}</span>
+              <span class="px-2.5 py-1 rounded-full bg-jade/10 text-jade text-xs font-medium">{bld.type}</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-ink mb-2 group-hover:text-jade transition-colors">{bld.name}</h3>
+            <p class="text-xs text-ink-muted mb-3">{bld.location} · {bld.travel.bestSeason}</p>
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">{pick.reason}</p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-medium text-jade group-hover:gap-2.5 transition-all">
+              Plan your visit
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+)}

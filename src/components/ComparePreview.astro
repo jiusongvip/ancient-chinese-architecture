@@ -1,0 +1,72 @@
+---
+const tangFeatures = ['Bold, masculine proportions', 'Wide overhanging eaves', 'Simple, powerful dougong', 'Red and white color scheme', 'Raised platforms (xumizuo)'];
+const songFeatures = ['Refined, elegant lines', 'Steeper roof pitch', 'Intricate multi-tier dougong', 'Green-glazed roof tiles', 'Curved, upward-sweeping eaves'];
+---
+
+<section class="py-24 px-6 bg-stone-light">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">
+        Tang vs Song: A Tale of Two Dynasties
+      </h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">
+        Side-by-side comparison reveals how Chinese architectural philosophy shifted from bold grandeur to refined elegance.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+      <div class="rounded-2xl border border-stone-dark/40 bg-stone p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-vermillion/10 flex items-center justify-center">
+            <span class="text-vermillion font-display font-bold text-lg">T</span>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-xl text-ink">Tang Dynasty</h3>
+            <p class="text-xs text-ink-muted">618 - 907 CE</p>
+          </div>
+        </div>
+        <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 bg-stone-dark">
+          <img src="/images/tang-compare.webp" alt="Tang dynasty architecture" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <ul class="space-y-2.5">
+          {tangFeatures.map(f => (
+            <li class="flex items-start gap-2.5 text-sm text-ink-muted">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-stone-dark/40 bg-stone p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-jade/10 flex items-center justify-center">
+            <span class="text-jade font-display font-bold text-lg">S</span>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-xl text-ink">Song Dynasty</h3>
+            <p class="text-xs text-ink-muted">960 - 1279 CE</p>
+          </div>
+        </div>
+        <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 bg-stone-dark">
+          <img src="/images/song-compare.webp" alt="Song dynasty architecture" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <ul class="space-y-2.5">
+          {songFeatures.map(f => (
+            <li class="flex items-start gap-2.5 text-sm text-ink-muted">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-jade" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-10 reveal">
+      <a href="/compare" class="inline-flex items-center gap-2 px-5 py-2.5 bg-ink hover:bg-ink-light text-white font-medium rounded-lg transition-colors text-sm">
+        Compare All Dynasties
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

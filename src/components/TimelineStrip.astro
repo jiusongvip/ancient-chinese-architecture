@@ -1,0 +1,55 @@
+---
+const dynasties = [
+  { era: 'Shang', years: '1600-1046 BCE', desc: 'Rammed earth foundations, early timber frames.', visitable: false },
+  { era: 'Zhou', years: '1046-256 BCE', desc: 'Courtyard compounds, bracket sets emerge.', visitable: false },
+  { era: 'Qin', years: '221-206 BCE', desc: 'Great Wall begins, monumental scale.', visitable: true },
+  { era: 'Han', years: '206 BCE-220 CE', desc: 'Multi-story towers, ceramic tile roofs.', visitable: true },
+  { era: 'Tang', years: '618-907', desc: 'Golden age: bold proportions, sweeping roofs.', visitable: true },
+  { era: 'Song', years: '960-1279', desc: 'Refined elegance, intricate dougong.', visitable: true },
+  { era: 'Yuan', years: '1271-1368', desc: 'Mongol influence, Tibetan Buddhist forms.', visitable: true },
+  { era: 'Ming', years: '1368-1644', desc: 'Forbidden City, standardized modules.', visitable: true },
+  { era: 'Qing', years: '1644-1912', desc: 'Ornate decoration, garden architecture.', visitable: true },
+];
+---
+
+<section class="py-24 px-6 bg-stone">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">
+        Architecture Through the Dynasties
+      </h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">
+        Each dynasty left its mark on China's built landscape. Scroll through 3,000 years of architectural evolution.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto pb-4 -mx-6 px-6 reveal">
+      <div class="flex gap-3 min-w-max">
+        {dynasties.map((d) => (
+          <a href={`/dynasties/${d.era.toLowerCase()}`}
+             class="group flex-shrink-0 w-[200px] p-5 rounded-xl bg-stone-light border border-stone-dark/50 hover:border-vermillion/30 hover:shadow-lg transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-vermillion/10 flex items-center justify-center mb-3 group-hover:bg-vermillion/20 transition-colors">
+              <span class="text-vermillion font-display font-bold text-sm">{d.era.slice(0,2)}</span>
+            </div>
+            <h3 class="font-display font-semibold text-ink text-base mb-1">{d.era} Dynasty</h3>
+            <p class="text-xs text-ink-muted mb-2">{d.years}</p>
+            <p class="text-xs text-ink-muted/70 leading-relaxed">{d.desc}</p>
+            {d.visitable && (
+              <span class="inline-flex items-center gap-1 mt-3 px-2 py-0.5 rounded-full bg-jade/10 text-jade text-[10px] font-medium">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2v4M12 14v8"/></svg>
+                Can visit today
+              </span>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-10 reveal">
+      <a href="/dynasties" class="inline-flex items-center gap-2 px-5 py-2.5 bg-ink hover:bg-ink-light text-white font-medium rounded-lg transition-colors text-sm">
+        View Full Timeline
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

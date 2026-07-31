@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { dynasties } from '../../data/dynasties';
+
+const first = dynasties[4]; // Tang
+const second = dynasties[5]; // Song
+---
+
+<Layout title="Compare Dynasty Styles | Ancient Chinese Architecture" description="Side-by-side comparison of Tang, Song, Ming and Qing dynasty architectural styles. Compare roof forms, structural systems, and decorative elements.">
+  <Nav />
+
+  <section class="pt-24 pb-16 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto text-center">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">Compare</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Compare Architectural Styles</h1>
+     <p class="text-lg text-ink-muted max-w-[65ch] mx-auto">Select two dynasties to see how architectural philosophy, structure, and decoration evolved across Chinese history.</p>
+     <div class="mt-8 text-left max-w-[65ch] mx-auto">
+       <p class="text-sm text-ink-muted leading-relaxed">Chinese architectural style transformed dramatically across 3,000 years of dynastic change. <strong>Tang architecture</strong> (618-907 CE) is characterized by bold, masculine proportions with massive structural dougong brackets and wide overhanging eaves — the golden age of timber construction. <strong>Song dynasty</strong> (960-1279 CE) refined Tang boldness into elegant sophistication, with steeper roofs, intricate decorative brackets, and the world\x27s first official building code (Yingzao Fashi, 1103). <strong>Ming architecture</strong> (1368-1644 CE) produced China\x27s most iconic structures — the Forbidden City, Temple of Heaven, and the brick-faced Great Wall — using standardized modular timber systems. <strong>Qing dynasty</strong> (1644-1912 CE) intensified Ming ornamentation, brought garden architecture to its zenith at the Summer Palace, and introduced Manchu and Tibetan stylistic influences. Use the selector below to compare any two dynasties side by side.</p>
+     </div>
+   </div>
+ </section>
+
+  <section class="py-12 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="font-display font-bold text-2xl text-ink text-center mb-8">Dynasty Comparison</h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <select id="left-select" class="w-full sm:w-56 px-4 py-3 rounded-xl border border-stone-dark/40 bg-stone text-ink font-display font-semibold text-sm focus:outline-none focus:border-vermillion/40 transition-colors">
+          {dynasties.map(d => (
+            <option value={d.id} selected={d.id === first.id}>{d.name} Dynasty ({d.years})</option>
+          ))}
+        </select>
+        <span class="text-ink-muted font-display font-bold text-xl px-2">vs</span>
+        <select id="right-select" class="w-full sm:w-56 px-4 py-3 rounded-xl border border-stone-dark/40 bg-stone text-ink font-display font-semibold text-sm focus:outline-none focus:border-jade/40 transition-colors">
+          {dynasties.map(d => (
+            <option value={d.id} selected={d.id === second.id}>{d.name} Dynasty ({d.years})</option>
+          ))}
+        </select>
+      </div>
+
+      <div id="comparison" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Left Column -->
+        <div id="left-col" class="rounded-2xl border border-stone-dark/40 bg-stone p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-vermillion/10 flex items-center justify-center">
+              <span class="text-vermillion font-display font-bold text-lg">{first.name[0]}</span>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold text-xl text-ink">{first.name} Dynasty</h3>
+              <p class="text-xs text-ink-muted">{first.years}</p>
+            </div>
+          </div>
+          <img src={first.image} alt={`${first.name} Dynasty architecture`} class="w-full aspect-[16/9] object-cover rounded-xl mb-6" loading="lazy" />
+          <ul id="left-features" class="space-y-2.5">
+            {first.features.map(f => (
+              <li class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div id="right-col" class="rounded-2xl border border-stone-dark/40 bg-stone p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-jade/10 flex items-center justify-center">
+              <span class="text-jade font-display font-bold text-lg">{second.name[0]}</span>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold text-xl text-ink">{second.name} Dynasty</h3>
+              <p class="text-xs text-ink-muted">{second.years}</p>
+            </div>
+          </div>
+          <img src={second.image} alt={`${second.name} Dynasty architecture`} class="w-full aspect-[16/9] object-cover rounded-xl mb-6" loading="lazy" />
+          <ul id="right-features" class="space-y-2.5">
+            {second.features.map(f => (
+              <li class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-jade" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  import { dynasties } from '../../data/dynasties';
+
+  const dynastiesData = dynasties;
+
+  function renderColumn(wrapperId, dyn, accentColor) {
+    const col = document.getElementById(wrapperId);
+    if (!col) return;
+    col.innerHTML = `
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-${accentColor}/10 flex items-center justify-center">
+          <span class="text-${accentColor} font-display font-bold text-lg">${dyn.name[0]}</span>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-xl text-ink">${dyn.name} Dynasty</h3>
+          <p class="text-xs text-ink-muted">${dyn.years}</p>
+        </div>
+      </div>
+      <img src="${dyn.image}" alt="${dyn.name} Dynasty architecture" class="w-full aspect-[16/9] object-cover rounded-xl mb-6" loading="lazy" />
+      <p class="text-sm text-ink-muted leading-relaxed mb-4">${dyn.summary}</p>
+      <ul class="space-y-2.5">
+        ${dyn.features.map(f => `
+          <li class="flex items-start gap-2.5 text-sm text-ink-muted">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-${accentColor}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ${f}
+          </li>
+        `).join('')}
+      </ul>
+    `;
+  }
+
+  document.getElementById('left-select')?.addEventListener('change', (e) => {
+    const d = dynastiesData.find(d => d.id === e.target.value);
+    if (d) renderColumn('left-col', d, 'vermillion');
+  });
+  document.getElementById('right-select')?.addEventListener('change', (e) => {
+    const d = dynastiesData.find(d => d.id === e.target.value);
+    if (d) renderColumn('right-col', d, 'jade');
+  });
+</script>

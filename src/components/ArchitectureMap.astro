@@ -1,0 +1,70 @@
+---
+const regions = [
+  {
+    name: 'Beijing',
+    subtitle: 'The Imperial Capital',
+    buildings: [
+      { id: 'forbidden-city', name: 'Forbidden City', href: '/buildings/forbidden-city' },
+      { id: 'temple-of-heaven', name: 'Temple of Heaven', href: '/buildings/temple-of-heaven' },
+      { id: 'summer-palace', name: 'Summer Palace', href: '/buildings/summer-palace' },
+      { id: 'great-wall', name: 'Great Wall', href: '/buildings/great-wall' },
+    ],
+    tip: 'All four are accessible by Beijing subway or short drive. 4-5 days recommended.',
+  },
+  {
+    name: 'Shanxi',
+    subtitle: 'Ancient Timber Heartland',
+    buildings: [
+      { id: 'foguang-temple', name: 'Foguang Temple', href: '/buildings/foguang-temple' },
+      { id: 'yingxian-pagoda', name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda' },
+    ],
+    tip: 'Rent a car in Taiyuan. The two sites are 2 hours apart. Best combined with a trip to Datong.',
+  },
+];
+---
+
+<section class="py-20 px-6 bg-stone">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="text-gold text-sm font-medium tracking-widest uppercase mb-3 font-display">Where to Find Them</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">Architecture on the Map</h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">All six featured buildings are open to visitors. Here is where they are and how to plan your route.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+      {regions.map((region, ri) => (
+        <div class="rounded-2xl border border-stone-dark/30 bg-stone-light overflow-hidden hover:border-stone-dark/60 hover:shadow-md transition-all duration-300">
+          <div class="p-6 border-b border-stone-dark/20">
+            <div class="flex items-center gap-3">
+              <div class={`w-10 h-10 rounded-xl flex items-center justify-center ${ri === 0 ? 'bg-vermillion/10' : 'bg-jade/10'}`}>
+                <span class={`font-display font-bold text-lg ${ri === 0 ? 'text-vermillion' : 'text-jade'}`}>{region.name[0]}</span>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg text-ink">{region.name}</h3>
+                <p class="text-xs text-ink-muted">{region.subtitle}</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="space-y-3">
+              {region.buildings.map(b => (
+                <a href={b.href} class="flex items-center gap-3 group/item py-2.5 px-3 rounded-lg hover:bg-stone transition-colors">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={`flex-shrink-0 ${ri === 0 ? 'text-vermillion/50' : 'text-jade/50'}`}>
+                    <circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+                  </svg>
+                  <span class="text-sm font-medium text-ink group-hover/item:text-vermillion transition-colors">{b.name}</span>
+                </a>
+              ))}
+            </div>
+            <div class="mt-4 pt-4 border-t border-stone-dark/20">
+              <p class="text-xs text-ink-muted leading-relaxed flex items-start gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 text-ink-muted/50"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                {region.tip}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+const itineraries = [
+  {
+    title: 'Beijing in 3 Days',
+    subtitle: 'The Imperial Core',
+    days: 3,
+    stops: [
+      { name: 'Forbidden City', href: '/buildings/forbidden-city', time: 'Day 1 — full day' },
+      { name: 'Temple of Heaven', href: '/buildings/temple-of-heaven', time: 'Day 2 — morning' },
+      { name: 'Summer Palace', href: '/buildings/summer-palace', time: 'Day 2 — afternoon' },
+      { name: 'Great Wall', href: '/buildings/great-wall', time: 'Day 3 — full day (Mutianyu)' },
+    ],
+    tip: 'Book Forbidden City tickets 7 days ahead. Start each day early — all sites open by 8:30am.',
+    accent: 'vermillion',
+    icon: '🏯',
+  },
+  {
+    title: 'Shanxi Weekend',
+    subtitle: 'Ancient Timber Treasures',
+    days: 2,
+    stops: [
+      { name: 'Foguang Temple', href: '/buildings/foguang-temple', time: 'Day 1 — morning + afternoon' },
+      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda', time: 'Day 2 — morning' },
+    ],
+    tip: 'Rent a car in Taiyuan. The mountain roads are well-maintained. Combine with a detour to the Hanging Temple near Datong if you have an extra day.',
+    accent: 'jade',
+    icon: '🏔️',
+  },
+  {
+    title: 'Grand Tour',
+    subtitle: 'Two Weeks Across Dynasties',
+    days: 14,
+    stops: [
+      { name: 'Beijing cluster', href: '/buildings', time: 'Days 1–5 — all four Beijing buildings' },
+      { name: 'Datong + Shanxi', href: '/buildings', time: 'Days 6–9 — Hanging Temple, Foguang, Yingxian' },
+      { name: 'Return via Pingyao', href: '#', time: 'Days 10–14 — Ming-Qing town, optional Xi\'an extension' },
+    ],
+    tip: 'Fly into Beijing, out of Taiyuan or Xi\'an. October is the ideal month for this route — autumn foliage from the Great Wall to the Shanxi mountains.',
+    accent: 'gold',
+    icon: '🗺️',
+  },
+];
+
+const accentMap = {
+  vermillion: { bg: 'vermillion', text: 'vermillion', light: 'vermillion/10' },
+  jade: { bg: 'jade', text: 'jade', light: 'jade/10' },
+  gold: { bg: 'gold', text: 'gold', light: 'gold/10' },
+};
+---
+
+<section class="py-20 px-6 bg-stone-light">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-3 font-display">Itineraries</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">Plan Your Trip</h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">From a weekend in Shanxi to a grand two-week tour, we have mapped out routes that connect the most significant buildings.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
+      {itineraries.map(it => {
+        const ac = accentMap[it.accent];
+        return (
+          <div class="rounded-2xl border border-stone-dark/30 bg-stone p-6 hover:border-stone-dark/60 hover:shadow-md transition-all duration-300 flex flex-col">
+            <div class={`w-12 h-12 rounded-xl bg-${ac.light} flex items-center justify-center mb-4`}>
+              <span class="text-2xl">{it.icon}</span>
+            </div>
+            <p class={`text-xs text-${ac.text} font-medium tracking-widest uppercase mb-1`}>{it.subtitle}</p>
+            <h3 class="font-display font-bold text-xl text-ink mb-1">{it.title}</h3>
+            <p class="text-xs text-ink-muted mb-5">{it.days} days · {it.stops.length} stops</p>
+
+            <div class="space-y-3 mb-5 flex-1">
+              {it.stops.map(s => (
+                <a href={s.href} class="flex items-start gap-3 group/item">
+                  <div class={`w-2 h-2 rounded-full bg-${ac.text}/40 mt-1.5 flex-shrink-0 group-hover/item:bg-${ac.text} transition-colors`}></div>
+                  <div>
+                    <span class="block text-sm font-medium text-ink group-hover/item:text-vermillion transition-colors">{s.name}</span>
+                    <span class="block text-xs text-ink-muted">{s.time}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div class={`rounded-xl bg-${ac.light} p-4`}>
+              <p class="text-xs text-ink-muted leading-relaxed">
+                <span class="font-semibold text-ink">Tip: </span>{it.tip}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

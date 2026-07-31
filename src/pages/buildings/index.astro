@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { buildings } from '../../data/buildings';
+
+const types = [...new Set(buildings.map(b => b.type))];
+---
+
+<Layout title="Famous Ancient Chinese Buildings | Forbidden City & More" description="Explore China's most iconic ancient buildings with detailed architectural profiles, historical context, and high-resolution photography from every dynasty.">
+  <Nav />
+
+  <section class="pt-24 pb-16 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto text-center">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">Buildings</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Famous Ancient Buildings</h1>
+      <p class="text-lg text-ink-muted max-w-[65ch] mx-auto">Iconic structures that showcase the height of Chinese architectural achievement, from Tang dynasty temples to Ming palace complexes.</p>
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+        {types.map(t => (
+          <span class="px-3 py-1.5 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink-muted font-medium">{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {buildings.map(b => (
+        <a href={`/buildings/${b.id}`} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-vermillion/10 via-stone-dark/50 to-jade/10 flex items-center justify-center relative overflow-hidden">
+            <img src={b.images[0]} alt={b.name} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="font-display font-bold text-8xl text-ink/8 select-none absolute">{b.name[0]}</span>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-vermillion/90 text-white text-xs font-medium">{b.dynasty}</span>
+          </div>
+          <div class="p-5">
+            <h2 class="font-display font-bold text-lg text-ink mb-1 group-hover:text-vermillion transition-colors">{b.name}</h2>
+            <p class="text-xs text-ink-muted mb-3">{b.type} · {b.location} · {b.yearBuilt}</p>
+            <p class="text-sm text-ink-muted leading-relaxed line-clamp-2">{b.description.slice(0, 160)}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

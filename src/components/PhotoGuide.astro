@@ -1,0 +1,36 @@
+---
+const tips = [
+  { title: 'Golden Hour is Your Friend', tip: 'Ancient Chinese buildings face south. Shoot in the early morning for front-lit facades, or late afternoon for warm side-light that brings out carved details and roof textures.' },
+  { title: 'Use Symmetry, Then Break It', tip: 'Chinese architecture is built on axial symmetry. Start with a centered composition to honor the design, then move off-axis for dramatic depth and layering of courtyards.' },
+  { title: 'Frame Through Gateways', tip: 'Moon gates, lattice windows, and colonnades create natural frames. Shoot through them to add depth and tell the story of moving through space.' },
+];
+---
+
+<section class="py-20 px-6 bg-stone-light">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-3 font-display">Photography</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">Capture the Architecture</h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">Practical photography tips for visitors, from the best time of day to the most rewarding compositions.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
+      {tips.map((t, i) => (
+        <div class="rounded-2xl border border-stone-dark/30 bg-stone p-6 hover:border-vermillion/20 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-vermillion/10 flex items-center justify-center mb-4">
+            <span class="font-display font-bold text-vermillion text-sm">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 class="font-display font-semibold text-ink mb-2">{t.title}</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">{t.tip}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10 reveal">
+      <a href="/gallery" class="inline-flex items-center gap-2 px-5 py-2.5 bg-stone border border-stone-dark/40 hover:border-vermillion/30 text-ink font-medium rounded-lg transition-all text-sm">
+        Browse Photo Gallery
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

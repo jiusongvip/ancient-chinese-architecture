@@ -1,0 +1,4 @@
+ User-agent: *
+ Allow: /
+
+ Sitemap: https://ancient-chinese-architecture.com/sitemap-index.xml
