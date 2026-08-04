@@ -1,5 +1,6 @@
 ---
 import { buildings } from '../data/buildings';
+import { imageSizes } from '../data/imageSizes';
 
 const month = new Date().getMonth();
 
@@ -37,7 +38,7 @@ if (!bld) throw new Error(`Building ${pick.buildingId} not found`);
       <a href={`/buildings/${bld.id}`} class="group block rounded-2xl border border-jade/20 bg-stone-light hover:border-jade/40 hover:shadow-lg transition-all duration-300 overflow-hidden reveal">
         <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
           <div class="aspect-[4/3] md:aspect-auto overflow-hidden">
-            <img src={bld.images[0]} alt={bld.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <img src={bld.images[0]} alt={bld.name} width={imageSizes[bld.images[0]]?.width} height={imageSizes[bld.images[0]]?.height} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center">
             <div class="flex items-center gap-2 mb-3">

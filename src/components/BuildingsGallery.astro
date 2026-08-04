@@ -1,5 +1,11 @@
 ---
 import { buildings } from '../data/buildings';
+import { imageSizes } from '../data/imageSizes';
+
+function imgProps(src: string) {
+  const s = imageSizes[src];
+  return { width: s?.width, height: s?.height };
+}
 ---
 
 <section class="py-24 px-6 bg-stone">
@@ -20,7 +26,7 @@ import { buildings } from '../data/buildings';
         <a href={`/buildings/${b.id}`}
            class={`group flex flex-col rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone-light hover:border-vermillion/25 hover:shadow-lg transition-all duration-300 ${i === 0 ? 'lg:col-span-2 lg:row-span-1' : ''}`}>
           <div class={`${i === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'} overflow-hidden relative`}>
-            <img src={b.images[0]} alt={b.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <img src={b.images[0]} alt={b.name} {...imgProps(b.images[0])} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             <div class="absolute top-3 left-3 flex gap-2">
               <span class="px-2.5 py-1 rounded-full bg-vermillion/90 text-white text-xs font-medium">{b.dynasty}</span>
               <span class="px-2.5 py-1 rounded-full bg-jade/90 text-white text-xs font-medium flex items-center gap-1">
