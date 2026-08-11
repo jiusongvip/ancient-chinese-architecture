@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const sections = [
+  {
+    heading: "Origins: The Cave Temple Comes to China",
+    body: "Cave temples are among the oldest surviving sacred architecture in the world. In India, the rock-cut halls of Ajanta and Ellora (begun c. 2nd century BCE) established a tradition of carving entire monasteries, prayer halls, and colossal Buddhas directly out of living rock. Along the Silk Road, this idea traveled east — first to the Gandhara region of present-day Pakistan, then to the oases of Central Asia. The earliest Chinese cave temples appeared at Kizil in Xinjiang around the 3rd century CE, followed by the first cave at Dunhuang's Mogao cliffs in 366 CE. Within two centuries, the practice had become the most ambitious form of Buddhist patronage in China: emperors, generals, and merchants alike funded the excavation of entire sacred mountains."
+  },
+  {
+    heading: "The Three Great Sites",
+    body: "Three sites define Chinese cave architecture: Mogao, Yungang, and Longmen. Mogao Caves (begun 366 CE) are the largest — 735 caves adorned with 45,000 square meters of murals, created continuously for a thousand years at the gateway of the Silk Road. Yungang Grottoes (460-525 CE) were the first imperial project: the Northern Wei emperors ordered colossal Buddhas carved at their capital Datong to embody the divine status of the ruler. Longmen Grottoes (from 493 CE) continued the tradition after the Wei moved south to Luoyang, adding more than 2,300 caves and niches over four centuries, including the 17-meter Vairocana Buddha of Fengxian Temple. Together they span 1,500 years of Buddhist art and every major stylistic shift in Chinese sculpture — from Indian-influenced colossi to fully sinicized elegance."
+  },
+  {
+    heading: "Architecture of Subtraction",
+    body: "Where timber building is an architecture of addition — raising columns, beams, and brackets — the cave temple is an architecture of subtraction: every wall, pillar, and vault is what remains after stone has been removed. Builders worked from the top down, carving the ceiling first and descending through the hall, so that a single error in the vault could not be repaired. The standard plan was the central pillar cave: a square chamber with a pillar left standing in the middle, its four faces carved with Buddha niches and pagoda imagery, echoing the multi-story pagodas of timber construction. Ceilings reproduced coffered timber ceilings in stone; doorways were framed like wooden gates. The result is a complete architectural grammar executed in reverse."
+  },
+  {
+    heading: "When Rock Imitates Timber",
+    body: "The most revealing feature of Chinese cave architecture is how faithfully it imitates wooden buildings. At Yungang's Cave 6 (completed 493 CE), the central pillar is carved as a two-story pagoda with full dougong brackets, tiled roofs, and balustrades — all in stone. At Mogao, entire timber temple facades were later built against the cliff, the most famous being the nine-story pavilion sheltering the 35.5-meter Maitreya Buddha of Cave 96. This dialogue ran in both directions: cave architecture preserved the forms of Tang timber buildings that no longer survive, while the structural logic of timber — the bracket, the beam, the column — shaped how Chinese sculptors thought about stone. Cave temples are thus both the oldest Buddhist architecture in China and a museum of timber building techniques from dynasties whose wooden halls have vanished."
+  },
+  {
+    heading: "Preserving a Thousand Years of Paint",
+    body: "The conservation of cave temples is one of the great challenges of modern heritage science. Mogao's murals face deterioration from salts, moisture, and tourism — the site admits a limited number of visitors daily, and every visitor affects the cave climate. In response, China has pioneered digital preservation: the Dunhuang Academy's 'Digital Dunhuang' project has produced high-resolution scans of the caves, and 3D-printed replicas now travel to museums worldwide, allowing the public to experience the caves without touching them. Similar programs protect Yungang and Longmen. The three sites, all UNESCO World Heritage Sites (1987, 2000, 2001), now function as laboratories for the preservation of world rock art — the most ambitious cultural heritage program ever undertaken."
+  }
+];
+
+const keyPoints = [
+  "Tradition imported from India along the Silk Road, 3rd century CE",
+  "Mogao: 735 caves, 45,000 sqm of murals, 1,000 years of continuous carving",
+  "Yungang: first imperial cave project (460-525 CE), 252 caves",
+  "Longmen: 2,300+ caves, 110,000 statues over 4 centuries",
+  "Central pillar caves mimic timber pagodas in stone",
+  "All three sites are UNESCO World Heritage Sites",
+  "Digital Dunhuang: high-res scans & 3D-printed replicas worldwide"
+];
+
+const caveSites = [
+  {
+    name: "Mogao Caves",
+    location: "Dunhuang, Gansu",
+    period: "366 CE - 14th c.",
+    stats: "735 caves · 45,000 sqm murals · 35.5m Buddha",
+    unesco: "1987",
+    href: "/buildings/mogao-caves",
+    image: "/images/mogao-caves-1.webp"
+  },
+  {
+    name: "Yungang Grottoes",
+    location: "Datong, Shanxi",
+    period: "460-525 CE",
+    stats: "252 caves · 51,000 statues · 13.7m Buddha",
+    unesco: "2001",
+    href: "/buildings/yungang-grottoes",
+    image: "/images/yungang-grottoes-1.webp"
+  },
+  {
+    name: "Longmen Grottoes",
+    location: "Luoyang, Henan",
+    period: "493 CE - 10th c.",
+    stats: "2,300+ caves · 110,000 statues · 17m Vairocana",
+    unesco: "2000",
+    href: "/buildings/longmen-grottoes",
+    image: "/images/longmen-grottoes-1.webp"
+  }
+];
+---
+
+<Layout
+  title="Chinese Cave Architecture: Mogao, Yungang & Longmen"
+  description="How China's cave temples were carved — Silk Road origins, the three great sites of Mogao, Yungang and Longmen, architecture of subtraction, and modern digital conservation."
+  ogImage="/images/cave-architecture.webp"
+>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ancient-chinese-architecture.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Buildings", "item": "https://ancient-chinese-architecture.com/buildings/" },
+        { "@type": "ListItem", "position": 3, "name": "Cave Architecture", "item": null }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Chinese Cave Architecture: Mogao, Yungang and Longmen",
+      "description": "A guide to China's great cave temples — their Silk Road origins, the three UNESCO sites, the technique of rock-cut construction, and the future of their preservation.",
+      "author": { "@type": "Organization", "name": "Ancient Chinese Architecture Editorial Team" },
+      "publisher": { "@type": "Organization", "name": "Ancient Chinese Architecture" },
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10"
+    }
+  </script>
+  <Nav />
+
+  <section class="pt-24 pb-10 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <a href="/buildings" class="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-ink transition-colors mb-6">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Buildings
+      </a>
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-2 font-display">Special Topic</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Cave Architecture</h1>
+      <p class="text-lg text-ink-muted max-w-[70ch] leading-relaxed">For a thousand years, Buddhist monks and imperial patrons carved entire sacred cities out of living rock — from the Silk Road oasis of Dunhuang to the imperial cliffs of Datong and Luoyang. Explore the architecture of subtraction and the three great UNESCO sites.</p>
+    </div>
+  </section>
+
+  <section class="py-2 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <img src="/images/cave-architecture.webp" alt="Mogao Caves cliff facade with the nine-story pavilion at Dunhuang" class="w-full aspect-[21/9] object-cover rounded-2xl" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="py-12 px-6 bg-stone">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
+        <div class="space-y-10">
+          {sections.map((s, i) => (
+            <div>
+              <div class="flex items-baseline gap-3 mb-3">
+                <span class="font-display font-bold text-vermillion/70 text-sm">{String(i + 1).padStart(2, '0')}</span>
+                <h2 class="font-display font-bold text-2xl text-ink">{s.heading}</h2>
+              </div>
+              <p class="text-ink-muted leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+
+          <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-8 mt-12">
+            <h2 class="font-display font-bold text-2xl text-ink mb-6">The Three Great Sites at a Glance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {caveSites.map(c => (
+                <a href={c.href} class="group block rounded-xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img src={c.image} alt={c.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  </div>
+                  <div class="p-5">
+                    <h3 class="font-display font-semibold text-ink mb-1 group-hover:text-vermillion transition-colors">{c.name}</h3>
+                    <p class="text-xs text-ink-muted mb-3">{c.location} · {c.period}</p>
+                    <p class="text-xs text-ink-muted leading-relaxed">{c.stats}</p>
+                    <span class="inline-block mt-3 px-2 py-0.5 rounded-full bg-jade/10 text-jade text-xs font-medium">UNESCO {c.unesco}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="sticky top-24 space-y-6">
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h3 class="font-display font-semibold text-ink mb-4">Key Facts</h3>
+              <ul class="space-y-3">
+                {keyPoints.map(k => (
+                  <li class="flex items-start gap-3 text-sm text-ink-muted">
+                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {k}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h3 class="font-display font-semibold text-ink mb-4">Explore the Cave Temples</h3>
+              <div class="space-y-2">
+                {caveSites.map(c => (
+                  <a href={c.href} class="block text-sm text-ink-muted hover:text-vermillion transition-colors py-1.5 border-b border-stone-dark/30 last:border-0">{c.name} — {c.location}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

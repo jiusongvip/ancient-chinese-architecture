@@ -25,6 +25,19 @@ if (!b) return Astro.redirect('/buildings/');
        ]
      }
    </script>
+   {b.faq && b.faq.length > 0 && (
+     <script type="application/ld+json">
+       {
+         "@context": "https://schema.org",
+         "@type": "FAQPage",
+         "mainEntity": [
+           {b.faq.map(f => (
+             `{ "@type": "Question", "name": ${JSON.stringify(f.q)}, "acceptedAnswer": { "@type": "Answer", "text": ${JSON.stringify(f.a)} } }`
+           )).join(',')}
+         ]
+       }
+     </script>
+   )}
    <Nav />
 
    <section class="pt-24 pb-8 px-6 bg-stone-light">
@@ -39,7 +52,13 @@ if (!b) return Astro.redirect('/buildings/');
       </div>
       <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-2">{b.name}</h1>
       <p class="text-ink-muted text-sm font-medium mb-2">{b.chineseName} · {b.location} · {b.yearBuilt}</p>
-      <p class="text-lg text-ink-muted max-w-[70ch] leading-relaxed mt-4">{b.description.slice(0, 300)}</p>
+      <p class="text-lg text-ink-muted max-w-[70ch] leading-relaxed mt-4">{b.description}</p>
+    </div>
+  </section>
+
+  <section class="py-2 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <img src={b.images[0]} alt={`${b.name} — ${b.location}`} class="w-full aspect-[21/9] object-cover rounded-2xl" loading="lazy" />
     </div>
   </section>
 
@@ -47,12 +66,65 @@ if (!b) return Astro.redirect('/buildings/');
     <div class="max-w-[1400px] mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
         <div class="space-y-8">
+          {b.keyDates && b.keyDates.length > 0 && (
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h2 class="font-display font-bold text-xl text-ink mb-5">Key Dates</h2>
+              <div class="space-y-0">
+                {b.keyDates.map((k, i) => (
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <span class="w-2.5 h-2.5 rounded-full bg-vermillion mt-1.5"></span>
+                      {i < b.keyDates.length - 1 && <span class="w-px flex-1 bg-stone-dark/40 my-1"></span>}
+                    </div>
+                    <div class="pb-5">
+                      <span class="font-display font-semibold text-ink text-sm block">{k.year}</span>
+                      <span class="text-sm text-ink-muted">{k.event}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           {b.sections.map(s => (
             <div>
               <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
-              <p class="text-ink-muted leading-relaxed">{s.body}</p>
+              {s.body.split('\n\n').map(p => (
+                <p class="text-ink-muted leading-relaxed mb-4 last:mb-0">{p}</p>
+              ))}
             </div>
           ))}
+          {b.images.length > 1 && (
+            <img src={b.images[1]} alt={`${b.name} — detail view`} class="w-full aspect-[16/9] object-cover rounded-2xl" loading="lazy" />
+          )}
+          <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <h2 class="font-display font-bold text-xl text-ink">Travel Guide</h2>
+              <span class={`px-2.5 py-0.5 rounded-full text-xs font-medium ${b.travel.visitable ? 'bg-jade/10 text-jade' : 'bg-gold/10 text-gold'}`}>{b.travel.visitable ? 'Open to Visitors' : 'Restricted Access'}</span>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-ink">Best Time to Visit</p>
+                  <p class="text-sm text-ink-muted">{b.travel.bestSeason}</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-ink">Photography Tips</p>
+                  <p class="text-sm text-ink-muted">{b.travel.photoTips}</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a8 8 0 1 1 14 0M5 17l3-3M19 17l-3-3"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-ink">How to Get There</p>
+                  <p class="text-sm text-ink-muted">{b.travel.howToGet}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <div class="sticky top-24 space-y-6">
@@ -83,6 +155,25 @@ if (!b) return Astro.redirect('/buildings/');
       </div>
     </div>
   </section>
+
+  {b.faq && b.faq.length > 0 && (
+    <section class="py-12 px-6 bg-stone-light">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-display font-bold text-2xl text-ink mb-8">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          {b.faq.map(f => (
+            <details class="group rounded-2xl border border-stone-dark/30 bg-stone p-6 open:border-vermillion/30 transition-colors">
+              <summary class="font-display font-semibold text-ink cursor-pointer list-none flex items-center justify-between gap-4">
+                {f.q}
+                <svg class="w-4 h-4 text-vermillion flex-shrink-0 group-open:rotate-45 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              </summary>
+              <p class="text-sm text-ink-muted leading-relaxed mt-4">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <Footer />
 </Layout>

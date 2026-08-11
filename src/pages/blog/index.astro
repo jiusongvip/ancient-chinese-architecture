@@ -18,10 +18,32 @@ const articles = [
       <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">Blog</p>
       <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Articles & Insights</h1>
       <p class="text-lg text-ink-muted max-w-[65ch]">In-depth explorations of Chinese architectural history, engineering, and cultural significance.</p>
+      <div class="mt-8 max-w-[65ch] space-y-4 text-ink-muted leading-relaxed">
+        <p>The articles in this journal go deeper than the reference pages elsewhere on the site. Each piece starts with a question that visitors actually ask — how did timber buildings survive earthquakes, what does the curve of a roof really mean, why does feng shui keep coming up in serious architectural discussion — and follows the evidence wherever it leads.</p>
+        <p>Our writers combine fieldwork notes, archaeological reports, classical Chinese building manuals, and modern structural engineering analysis. Where a claim is contested, we say so and present both sides. Every article links back to the relevant building, element, and dynasty pages so you can verify the details yourself.</p>
+        <p>New articles are published every few weeks. If there is a topic you would like us to cover — a specific building, a construction technique, or a broader cultural question — use the contact link in the footer and we will add it to our research queue.</p>
+        <p>Every piece is dated so you can judge how current the research is, and each article is reviewed by an editor with a background in architectural history before publication. When an article depends on the current state of a monument — its accessibility, its conservation status, or recent restorations — we check it against the latest official notices before republishing. Corrections are logged openly at the foot of each article, and readers who spot errors are credited in the revision history.</p>
+      </div>
     </div>
   </section>
   <section class="py-16 px-6 bg-stone-light">
-    <div class="max-w-[1000px] mx-auto space-y-6">
+    <div class="max-w-[1000px] mx-auto">
+      <div class="mb-10">
+        <h2 class="font-display font-bold text-2xl text-ink mb-3">Popular Topics</h2>
+        <p class="text-sm text-ink-muted leading-relaxed mb-5">Our coverage clusters around five recurring themes. Click any topic to explore the related reference pages across the site:</p>
+        <div class="flex flex-wrap gap-2.5">
+          <a href="/elements/dougong" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Dougong &amp; Timber Engineering</a>
+          <a href="/dynasties/tang" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Tang Dynasty Architecture</a>
+          <a href="/elements/roofs" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Roof Forms &amp; Symbolism</a>
+          <a href="/buildings/mogao-caves" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Grotto Temples &amp; Cave Art</a>
+          <a href="/buildings/summer-palace" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Garden &amp; Landscape Design</a>
+          <a href="/elements/courtyards" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Courtyards &amp; Urban Planning</a>
+          <a href="/dynasties/song" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Song Dynasty Innovation</a>
+          <a href="/buildings/great-wall" class="px-4 py-2 rounded-full bg-stone border border-stone-dark/30 text-sm text-ink hover:border-vermillion/40 hover:text-vermillion transition-colors">Defensive Architecture</a>
+        </div>
+      </div>
+      <h2 class="font-display font-bold text-2xl text-ink mb-6">All Articles</h2>
+      <div class="space-y-6">
       {articles.map(a => (
         <a href={`/blog/${a.slug}`} class="block group p-6 rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-md transition-all">
           <p class="text-xs text-ink-muted mb-2">{a.date}</p>
@@ -29,6 +51,7 @@ const articles = [
           <p class="text-sm text-ink-muted leading-relaxed">{a.desc}</p>
         </a>
       ))}
+    </div>
     </div>
   </section>
   <Footer />

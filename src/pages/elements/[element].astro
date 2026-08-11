@@ -25,6 +25,19 @@ if (!el) return Astro.redirect('/elements/');
        ]
      }
    </script>
+   {el.faq && el.faq.length > 0 && (
+     <script type="application/ld+json">
+       {
+         "@context": "https://schema.org",
+         "@type": "FAQPage",
+         "mainEntity": [
+           {el.faq.map(f => (
+             `{ "@type": "Question", "name": ${JSON.stringify(f.q)}, "acceptedAnswer": { "@type": "Answer", "text": ${JSON.stringify(f.a)} } }`
+           )).join(',')}
+         ]
+       }
+     </script>
+   )}
    <Nav />
 
    <section class="pt-24 pb-8 px-6 bg-stone-light">
@@ -49,10 +62,35 @@ if (!el) return Astro.redirect('/elements/');
     <div class="max-w-[1400px] mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
         <div class="space-y-8">
+          {el.table && (
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6 overflow-x-auto">
+              <h2 class="font-display font-bold text-xl text-ink mb-4">{el.table.caption}</h2>
+              <table class="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-stone-dark/40">
+                    {el.table.headers.map(h => (
+                      <th class="py-3 pr-5 font-display font-semibold text-ink whitespace-nowrap">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {el.table.rows.map(r => (
+                    <tr class="border-b border-stone-dark/20 last:border-0 align-top">
+                      {r.map((c, i) => (
+                        <td class={`py-3 pr-5 text-ink-muted ${i === 0 ? 'font-medium text-ink' : ''}`}>{c}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
           {el.sections.map((s, i) => (
             <div>
               <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
-              <p class="text-ink-muted leading-relaxed">{s.body}</p>
+              {s.body.split('\n\n').map(p => (
+                <p class="text-ink-muted leading-relaxed mb-4 last:mb-0">{p}</p>
+              ))}
             </div>
           ))}
         </div>
@@ -85,6 +123,25 @@ if (!el) return Astro.redirect('/elements/');
       </div>
     </div>
   </section>
+
+  {el.faq && el.faq.length > 0 && (
+    <section class="py-12 px-6 bg-stone-light">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-display font-bold text-2xl text-ink mb-8">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          {el.faq.map(f => (
+            <details class="group rounded-2xl border border-stone-dark/30 bg-stone p-6 open:border-vermillion/30 transition-colors">
+              <summary class="font-display font-semibold text-ink cursor-pointer list-none flex items-center justify-between gap-4">
+                {f.q}
+                <svg class="w-4 h-4 text-vermillion flex-shrink-0 group-open:rotate-45 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              </summary>
+              <p class="text-sm text-ink-muted leading-relaxed mt-4">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <Footer />
 </Layout>

@@ -1,33 +1,14 @@
 ---
-const elements = [
-  {
-    icon: 'dougong',
-    title: 'Dougong Brackets',
-    desc: 'The interlocking wooden bracket system that supports sweeping eaves without a single nail. A masterpiece of structural engineering perfected over millennia.',
-    href: '/elements/dougong',
-    image: '/images/dougong.webp',
-    width: 1200,
-    height: 1800,
-  },
-  {
-    icon: 'roof',
-    title: 'Roof Forms',
-    desc: 'From the grand hip-and-gable to the elegant pyramidal roof, each form carries symbolic meaning and reflects the status of the building it crowns.',
-    href: '/elements/roofs',
-    image: '/images/roof-forms.webp',
-    width: 1200,
-    height: 1800,
-  },
-  {
-    icon: 'courtyard',
-    title: 'Courtyard Layouts',
-    desc: 'The siheyuan courtyard embodies harmony between heaven and earth. Explore how spatial organization reflected social hierarchy and cosmic order.',
-    href: '/elements/courtyards',
-    image: '/images/courtyard.webp',
-    width: 1200,
-    height: 800,
-  },
-];
+import { elements } from '../data/elements';
+
+const featured = elements.map(el => ({
+  title: el.name,
+  desc: el.description.slice(0, 130).trimEnd() + '…',
+  href: `/elements/${el.id}`,
+  image: el.image,
+  width: 1200,
+  height: 800,
+}));
 ---
 
 <section class="py-24 px-6 bg-stone-light">
@@ -37,12 +18,12 @@ const elements = [
         The Language of Chinese Architecture
       </h2>
       <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">
-        Three defining elements that set ancient Chinese buildings apart from any other architectural tradition.
+        Six defining elements that set ancient Chinese buildings apart from any other architectural tradition.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
-      {elements.map((el) => (
+      {featured.map((el) => (
         <a href={el.href} class="group block rounded-2xl overflow-hidden border border-stone-dark/40 bg-stone hover:border-vermillion/25 hover:shadow-xl transition-all duration-300">
           <div class="aspect-[4/3] overflow-hidden">
             <img src={el.image} alt={el.title} width={el.width} height={el.height} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />

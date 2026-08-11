@@ -1,0 +1,51 @@
+---
+const topics = [
+  {
+    label: 'Special Topic',
+    title: 'Cave Architecture',
+    desc: 'Mogao, Yungang & Longmen — for a thousand years, Buddhist patrons carved entire sacred cities out of living rock along the Silk Road.',
+    href: '/buildings/caves',
+    image: '/images/cave-architecture.webp',
+    tag: '3 UNESCO Sites',
+    accent: 'jade',
+  },
+  {
+    label: 'Special Topic',
+    title: 'Chinese Urban Planning',
+    desc: "Walled cities, the Kaogongji grid, Tang Chang'an's ward system and the 7.8 km Beijing Central Axis — how emperors ordered space.",
+    href: '/urban-planning',
+    image: '/images/urban-planning.webp',
+    tag: '3,000 Years of Cities',
+    accent: 'gold',
+  },
+];
+---
+
+<section class="py-24 px-6 bg-stone">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-ink tracking-tight mb-4">Beyond the Buildings</h2>
+      <p class="text-ink-muted text-lg max-w-[60ch] mx-auto">Two deep-dive guides that connect individual monuments to the bigger ideas of Chinese architecture — the city and the cliff.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+      {topics.map(t => (
+        <a href={t.href} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone-light hover:border-vermillion/25 hover:shadow-xl transition-all duration-300">
+          <div class="aspect-[21/9] overflow-hidden relative">
+            <img src={t.image} alt={t.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-ink/70 text-white text-xs font-medium backdrop-blur-sm">{t.tag}</span>
+          </div>
+          <div class="p-7">
+            <p class={`text-sm font-medium tracking-widest uppercase mb-2 font-display text-${t.accent}`}>{t.label}</p>
+            <h3 class="font-display font-bold text-2xl text-ink mb-2 group-hover:text-vermillion transition-colors">{t.title}</h3>
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">{t.desc}</p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-medium text-vermillion group-hover:gap-2.5 transition-all">
+              Explore the topic
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

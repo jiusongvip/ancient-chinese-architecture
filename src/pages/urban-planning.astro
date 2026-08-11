@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    heading: "The Walled City Tradition",
+    body: "Chinese cities were defined by walls before they were defined by streets. The earliest known urban centers — Erlitou (c. 1900-1500 BCE) in the Yellow River valley — already featured rammed-earth palace enclosures. By the Shang dynasty, the Zhengzhou City Wall (c. 1600-1400 BCE) enclosed a city of roughly 25 square kilometers with a perimeter of 7 kilometers, its rammed-earth base up to 20 meters wide and 10 meters tall. The wall was not merely defensive: it marked the boundary between civilized order and the wild, untamed world beyond. The square plan echoed the ancient Chinese conception of a flat, four-cornered earth, making every walled city a miniature cosmos governed by the same rules as the empire itself."
+  },
+  {
+    heading: "The Grid and the Ward System",
+    body: "The blueprint for the ideal Chinese capital was fixed in the Rituals of Zhou (Kaogongji, compiled c. 300 BCE): a square city of nine li per side, three gates per wall, nine north-south and nine east-west avenues, with the court facing south and the markets behind it. Tang dynasty Chang'an realized this ideal at colossal scale. At 84 square kilometers, it was the largest city on earth — seven times the size of contemporary Constantinople. Its streets formed a strict grid of 108 walled wards (fang), each with its own gates locked at night under curfew. The central Zhuque Avenue measured 147 meters wide. Commerce was confined to the Eastern and Western Markets — an urban order so rigid that even street vendors were regulated. This ward system would shape Chinese capitals for 700 years."
+  },
+  {
+    heading: "The Central Axis",
+    body: "The most enduring idea in Chinese urban planning is the central axis — a single north-south line of supreme significance. The axis reached its apotheosis in Beijing: 7.8 kilometers from Yongding Gate in the south to the Bell and Drum Towers in the north, passing through the Tiananmen Gate, the Forbidden City, and Jingshan Hill. Every major structure on the axis was built to be viewed in symmetrical relation to it; the emperor's throne in the Hall of Supreme Harmony sits precisely on the line, flanked by the ceremonial architecture of the empire's civil and military power. In 2024, UNESCO inscribed the Beijing Central Axis as a World Heritage Site, recognizing it as the most complete expression of a planning tradition stretching back to the Zhou dynasty's 'center as the seat of kingship' (zhongli weizhong)."
+  },
+  {
+    heading: "Fengshui and the Ideal Siting",
+    body: "Before a single wall was raised, a Chinese city's location was chosen by geomancy (fengshui). The ideal site faced south, with mountains protecting the north (the direction of cold winds and, symbolically, of barbarian threat), water flowing before it, and an open plain beyond. Beijing itself sits at the northern edge of the North China Plain, sheltered by the Yan Mountains — a textbook fengshui position chosen by the Ming emperors. The Ming Tombs demonstrate the principle in its purest form: thirteen imperial mausolea arranged in a horseshoe of hills that open to the south, each sited so that the emperor's spirit could look out over his realm. Cities and tombs alike oriented their gates, halls, and streets to harness the auspicious flow of qi — a practice that made Chinese planning at once astronomical, topographical, and religious."
+  },
+  {
+    heading: "Water and Infrastructure",
+    body: "The great Chinese capitals solved problems of supply and drainage on a scale no other pre-modern city approached. Chang'an's water came from a network of canals and reservoirs channeled from the nearby rivers. The Grand Canal — begun under the Sui dynasty in the 7th century and extending 1,776 kilometers from Beijing to Hangzhou — bound the capitals to the rice-producing south and remains the longest artificial waterway in the world. Yuan dynasty Dadu (modern Beijing) owes its lakes to the engineer Guo Shoujing, whose Tonghui Canal (1293) connected the city to the canal system; his waterworks still shape the Beijing landscape. Drainage was equally sophisticated: the Song dynasty 'Fushou Drainage' system of Ganzhou (built 1068-1077) still protects the city from flooding today — more than 950 years of continuous service."
+  },
+  {
+    heading: "One Model, Fifteen Capitals",
+    body: "From the Han capital Chang'an through Luoyang, Kaifeng, Nanjing, and Beijing, Chinese planners rebuilt the same ideal city again and again — a tradition unique in world history. Each new dynasty founded a capital that acknowledged its predecessor's plan while perfecting it. Yuan dynasty Dadu, planned by Liu Bingzhong in 1267, imposed a near-perfect grid of broad avenues and narrow alleys (hutongs) that survives intact in central Beijing today. When the Ming built Beijing on the same site in 1406-1420, they reoriented the whole city to the axis of the Forbidden City. The result is a palimpsest: a city whose streets, gates, and sacred buildings still encode 3,000 years of Chinese ideas about order, power, and the cosmos — and one that any visitor can read with the right keys."
+  }
+];
+
+const keyPoints = [
+  "Walls preceded streets: rammed-earth city walls from c. 1600 BCE",
+  "Kaogongji grid model: 9×9 avenues, court facing south",
+  "Tang Chang'an: 84 km², 108 wards, the largest city on earth",
+  "Beijing Central Axis: 7.8 km, UNESCO World Heritage (2024)",
+  "Fengshui siting: mountains behind, water before, facing south",
+  "Grand Canal: 1,776 km — longest artificial waterway in the world",
+  "Ganzhou Fushou Drainage: 950+ years of continuous service"
+];
+
+const capitals = [
+  { name: "Chang'an (Han)", years: "202 BCE-25 CE", note: "First monumental imperial grid, 12 gates, ritual axis" },
+  { name: "Luoyang (Northern Wei)", years: "493-534 CE", note: "Perfect 9×9 grid; 220 wards; model for Tang Chang'an" },
+  { name: "Chang'an (Tang)", years: "618-904 CE", note: "108 wards, 147m central avenue, world's largest city" },
+  { name: "Kaifeng (Song)", years: "960-1127 CE", note: "First capital to break the ward curfew; night markets" },
+  { name: "Dadu (Yuan)", years: "1267-1368 CE", note: "Liu Bingzhong's grid; hutongs still trace its alleys" },
+  { name: "Beijing (Ming-Qing)", years: "1406-1911 CE", note: "7.8km axis, Forbidden City at center, UNESCO 2024" }
+];
+
+const relatedPages = [
+  { name: "The Forbidden City", href: "/buildings/forbidden-city", desc: "The palace compound that anchors the Beijing axis" },
+  { name: "The Ming Tombs", href: "/buildings/ming-tombs", desc: "Fengshui siting perfected for thirteen emperors" },
+  { name: "The Great Wall", href: "/buildings/great-wall", desc: "Rammed-earth and brick fortification on an empire scale" },
+  { name: "Courtyard Layouts", href: "/elements/courtyards", desc: "The courtyard as the basic cell of every Chinese city" },
+  { name: "Tang Dynasty", href: "/dynasties/tang", desc: "Chang'an — the greatest city of the medieval world" }
+];
+---
+
+<Layout
+  title="Chinese Urban Planning: Walled Cities, Grids & the Central Axis"
+  description="How Chinese cities were planned — from Shang dynasty walled cities to the Kaogongji grid, Tang Chang'an's ward system, the Beijing Central Axis, and fengshui siting."
+  ogImage="/images/urban-planning.webp"
+>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ancient-chinese-architecture.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Urban Planning", "item": null }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Chinese Urban Planning: Walled Cities, Grids and the Central Axis",
+      "description": "A data-rich guide to 3,000 years of Chinese city planning — walled cities, the Kaogongji grid, the ward system, the central axis, fengshui siting, and water infrastructure.",
+      "author": { "@type": "Organization", "name": "Ancient Chinese Architecture Editorial Team" },
+      "publisher": { "@type": "Organization", "name": "Ancient Chinese Architecture" },
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10"
+    }
+  </script>
+  <Nav />
+
+  <section class="pt-24 pb-10 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <a href="/" class="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-ink transition-colors mb-6">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Home
+      </a>
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-2 font-display">Special Topic</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Chinese Urban Planning</h1>
+      <p class="text-lg text-ink-muted max-w-[70ch] leading-relaxed">Walled cities, orthogonal grids, the ward system, and the central axis — how 3,000 years of Chinese emperors ordered space to embody power. From the first rammed-earth capitals of the Shang dynasty to the UNESCO-inscribed Beijing Central Axis of 2024.</p>
+    </div>
+  </section>
+
+  <section class="py-2 px-6 bg-stone-light">
+    <div class="max-w-[1400px] mx-auto">
+      <img src="/images/urban-planning.webp" alt="Aerial view of Beijing's central axis and Forbidden City, illustrating Chinese urban planning" class="w-full aspect-[21/9] object-cover rounded-2xl" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="py-12 px-6 bg-stone">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
+        <div class="space-y-10">
+          {sections.map((s, i) => (
+            <div>
+              <div class="flex items-baseline gap-3 mb-3">
+                <span class="font-display font-bold text-vermillion/70 text-sm">{String(i + 1).padStart(2, '0')}</span>
+                <h2 class="font-display font-bold text-2xl text-ink">{s.heading}</h2>
+              </div>
+              <p class="text-ink-muted leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+
+          <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-8 mt-12">
+            <h2 class="font-display font-bold text-2xl text-ink mb-6">One Model, Fifteen Capitals</h2>
+            <p class="text-sm text-ink-muted mb-6">The same ideal city, rebuilt for two thousand years. Each dynasty perfected its predecessor's plan — and every capital below still shapes the city that stands on its site today.</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="border-b border-stone-dark/40">
+                    <th class="py-3 pr-4 font-display font-semibold text-ink">Capital</th>
+                    <th class="py-3 pr-4 font-display font-semibold text-ink">Period</th>
+                    <th class="py-3 font-display font-semibold text-ink">Planning Legacy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {capitals.map(c => (
+                    <tr class="border-b border-stone-dark/20 last:border-0">
+                      <td class="py-3 pr-4 text-ink font-medium">{c.name}</td>
+                      <td class="py-3 pr-4 text-ink-muted whitespace-nowrap">{c.years}</td>
+                      <td class="py-3 text-ink-muted">{c.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="sticky top-24 space-y-6">
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h3 class="font-display font-semibold text-ink mb-4">Key Facts</h3>
+              <ul class="space-y-3">
+                {keyPoints.map(k => (
+                  <li class="flex items-start gap-3 text-sm text-ink-muted">
+                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {k}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+              <h3 class="font-display font-semibold text-ink mb-4">Explore Related Pages</h3>
+              <div class="space-y-4">
+                {relatedPages.map(r => (
+                  <a href={r.href} class="block group">
+                    <span class="block text-sm font-medium text-ink group-hover:text-vermillion transition-colors">{r.name}</span>
+                    <span class="block text-xs text-ink-muted mt-0.5">{r.desc}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
