@@ -11,7 +11,7 @@ export interface Props {
 const { title, description } = Astro.props;
 const ogImage = Astro.props.ogImage ?? '/images/hero.webp';
 const ogType = Astro.props.ogType ?? 'website';
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalUrl = new URL(Astro.url.pathname || '/', Astro.site).href.replace(/\/$/, '');
 
 function truncateDescription(desc: string, maxLen = 157): string {
   if (desc.length <= maxLen) return desc;
