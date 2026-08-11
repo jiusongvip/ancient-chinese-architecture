@@ -26,6 +26,14 @@ const metaDescription = truncateDescription(description);
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-B7BTFNQQ4W"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B7BTFNQQ4W');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={metaDescription} />
@@ -55,7 +63,7 @@ const metaDescription = truncateDescription(description);
    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 
    <meta name="author" content="Ancient Chinese Architecture Editorial Team" />
-   <meta name="date" content="2026-07-31" scheme="YYYY-MM-DD" />
+   <meta name="date" content="2026-07-31" />
 
    <!-- JSON-LD Structured Data -->
    <script type="application/ld+json">
