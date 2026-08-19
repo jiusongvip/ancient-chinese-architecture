@@ -6,8 +6,8 @@
 
  // https://astro.build/config
  export default defineConfig({
-   site: 'https://ancient-chinese-architecture.com',
-   trailingSlash: 'never',
+   site: 'https://www.ancient-chinese-architecture.com',
+   trailingSlash: 'always',
    integrations: [sitemap()],
    vite: {
      plugins: [tailwindcss()]

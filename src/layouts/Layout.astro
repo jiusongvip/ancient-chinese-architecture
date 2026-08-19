@@ -11,7 +11,9 @@ export interface Props {
 const { title, description } = Astro.props;
 const ogImage = Astro.props.ogImage ?? '/images/hero.webp';
 const ogType = Astro.props.ogType ?? 'website';
-const canonicalUrl = new URL(Astro.url.pathname || '/', Astro.site).href.replace(/\/$/, '');
+const canonicalUrl = Astro.url.pathname === '/'
+  ? new URL('/', Astro.site).href.replace(/\/$/, '')
+  : new URL(Astro.url.pathname, Astro.site).href;
 
 function truncateDescription(desc: string, maxLen = 157): string {
   if (desc.length <= maxLen) return desc;
@@ -71,7 +73,7 @@ const metaDescription = truncateDescription(description);
        "@context": "https://schema.org",
        "@type": "Person",
        "name": "Ancient Chinese Architecture Editorial Team",
-       "url": "https://ancient-chinese-architecture.com/about/",
+       "url": "https://www.ancient-chinese-architecture.com/about/",
        "jobTitle": "Architectural Historians and Researchers",
        "description": "A team of researchers dedicated to documenting and explaining 3,000 years of Chinese architectural heritage.",
        "knowsAbout": ["Chinese Architecture", "Architectural History", "East Asian Studies", "Cultural Heritage"]
@@ -82,9 +84,9 @@ const metaDescription = truncateDescription(description);
        "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Ancient Chinese Architecture",
-      "url": "https://ancient-chinese-architecture.com",
+      "url": "https://www.ancient-chinese-architecture.com",
       "description": "A digital museum exploring 3,000 years of Chinese architectural heritage.",
-      "logo": "https://ancient-chinese-architecture.com/og-default.jpg"
+      "logo": "https://www.ancient-chinese-architecture.com/og-default.jpg"
     }
   </script>
   <script type="application/ld+json">
@@ -92,10 +94,10 @@ const metaDescription = truncateDescription(description);
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Ancient Chinese Architecture",
-      "url": "https://ancient-chinese-architecture.com",
+      "url": "https://www.ancient-chinese-architecture.com",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://ancient-chinese-architecture.com/search?q={search_term_string}",
+        "target": "https://www.ancient-chinese-architecture.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
