@@ -34,7 +34,7 @@ const faqSchema = b.faq && b.faq.length > 0
   : null;
 ---
 
- <Layout title={`${b.name} | Ancient Chinese Architecture`} description={b.description}>
+ <Layout title={`${b.seoTitle ?? b.name} | Ancient Chinese Architecture`} description={b.seoDescription ?? b.description}>
    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
    <Nav />
