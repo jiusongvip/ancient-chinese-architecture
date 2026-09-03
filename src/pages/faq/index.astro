@@ -12,25 +12,20 @@ import Footer from '../../components/Footer.astro';
    { q: 'Where can I see the best examples of Tang dynasty architecture?', a: 'The best surviving Tang dynasty timber buildings are concentrated in Shanxi Province: Foguang Temple (857 CE) and Nanchan Temple (782 CE) are the two oldest wooden structures in China. Both are accessible from Taiyuan, Shanxi\'s capital, though they require a car — public transport is limited. The Great Wild Goose Pagoda in Xi\'an, though a brick structure, preserves Tang proportions and is a UNESCO World Heritage Site. In Japan, several temples preserve Tang-influenced architecture from the same period, including Horyu-ji and Toshodai-ji in Nara — these are particularly valuable because many Tang-era buildings in China itself were lost over the centuries. Korea\'s Silla-period temples, such as Bulguksa in Gyeongju, also reflect Tang architectural influence, demonstrating the international reach of Tang style.'},
    { q: 'What is the siheyuan courtyard layout?', a: 'A siheyuan is a traditional Chinese courtyard residence with buildings arranged around a central open space on all four sides. The main hall faces south to capture maximum winter sunlight and block cold northern winds — a passive solar design principle. Senior family members occupied the main hall, while the eastern and western side halls housed younger family members according to seniority, and the southern reverse hall served as an entrance and servants\' quarters. A screen wall (yingbi) inside the entrance gate ensured privacy by blocking direct views from the street. The courtyard itself — often planted with trees and flowers — served as outdoor living space, light well, and the symbolic center of family life. Larger compounds could contain multiple linked courtyards, with the innermost reserved for the most senior family members. This layout embodied Confucian hierarchy and the cosmological idea that the open courtyard mediates between heaven (round sky) and earth (square dwelling).'}
  ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
 ---
 
- <Layout title="FAQ | Ancient Chinese Architecture Questions Answered" description="Frequently asked questions about ancient Chinese architecture, including dougong brackets, roof forms, courtyard layouts, and dynasty styles.">
-   <script type="application/ld+json">
-     {
-       "@context": "https://schema.org",
-       "@type": "FAQPage",
-       "mainEntity": [
-         {"@type": "Question", "name": faqs[0].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[0].a }},
-         {"@type": "Question", "name": faqs[1].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[1].a }},
-         {"@type": "Question", "name": faqs[2].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[2].a }},
-         {"@type": "Question", "name": faqs[3].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[3].a }},
-         {"@type": "Question", "name": faqs[4].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[4].a }},
-         {"@type": "Question", "name": faqs[5].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[5].a }},
-         {"@type": "Question", "name": faqs[6].q, "acceptedAnswer": {"@type": "Answer", "text": faqs[6].a }}
-       ]
-     }
-   </script>
-   <Nav />
+<Layout title="FAQ | Ancient Chinese Architecture Questions Answered" description="Frequently asked questions about ancient Chinese architecture, including dougong brackets, roof forms, courtyard layouts, and dynasty styles.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <Nav />
    <section class="pt-24 pb-16 px-6 bg-stone-light">
     <div class="max-w-[900px] mx-auto">
       <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">FAQ</p>

@@ -11,33 +11,32 @@ export function getStaticPaths() {
 const { element } = Astro.params;
 const el = elements.find(e => e.id === element);
 if (!el) return Astro.redirect('/elements/');
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ancient-chinese-architecture.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Elements", "item": "https://www.ancient-chinese-architecture.com/elements/" },
+    { "@type": "ListItem", "position": 3, "name": el.name, "item": `https://www.ancient-chinese-architecture.com/elements/${el.id}/` }
+  ]
+};
+const faqSchema = el.faq && el.faq.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": el.faq.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  : null;
 ---
 
  <Layout title={`${el.name} | Ancient Chinese Architecture`} description={el.description}>
-   <script type="application/ld+json">
-     {
-       "@context": "https://schema.org",
-       "@type": "BreadcrumbList",
-       "itemListElement": [
-         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ancient-chinese-architecture.com/" },
-         { "@type": "ListItem", "position": 2, "name": "Elements", "item": "https://www.ancient-chinese-architecture.com/elements/" },
-         { "@type": "ListItem", "position": 3, "name": el.name, "item": null }
-       ]
-     }
-   </script>
-   {el.faq && el.faq.length > 0 && (
-     <script type="application/ld+json">
-       {
-         "@context": "https://schema.org",
-         "@type": "FAQPage",
-         "mainEntity": [
-           {el.faq.map(f => (
-             `{ "@type": "Question", "name": ${JSON.stringify(f.q)}, "acceptedAnswer": { "@type": "Answer", "text": ${JSON.stringify(f.a)} } }`
-           )).join(',')}
-         ]
-       }
-     </script>
-   )}
+   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
    <Nav />
 
    <section class="pt-24 pb-8 px-6 bg-stone-light">
