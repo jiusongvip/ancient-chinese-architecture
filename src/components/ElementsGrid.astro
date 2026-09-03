@@ -4,7 +4,7 @@ import { elements } from '../data/elements';
 const featured = elements.map(el => ({
   title: el.name,
   desc: el.description.slice(0, 130).trimEnd() + '…',
-  href: `/elements/${el.id}`,
+  href: `/elements/${el.id}/`,
   image: el.image,
   width: 1200,
   height: 800,

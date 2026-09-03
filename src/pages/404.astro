@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="404 — Page Not Found | Ancient Chinese Architecture" description="The page you are looking for does not exist. Browse our collection of ancient Chinese architecture guides, dynasties, and buildings.">
+  <Nav />
+  <section class="min-h-[60vh] flex items-center justify-center px-6 bg-stone-light">
+    <div class="text-center max-w-lg">
+      <p class="text-vermillion text-sm font-medium tracking-widest uppercase mb-4 font-display">404</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">Page Not Found</h1>
+      <p class="text-lg text-ink-muted mb-8 leading-relaxed">The page you are looking for does not exist or has been moved.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/" class="px-5 py-2.5 bg-ink hover:bg-ink-light text-white font-medium rounded-lg transition-colors text-sm">Home</a>
+        <a href="/buildings/" class="px-5 py-2.5 bg-stone border border-stone-dark/40 hover:border-vermillion/30 text-ink font-medium rounded-lg transition-all text-sm">Browse Buildings</a>
+        <a href="/dynasties/" class="px-5 py-2.5 bg-stone border border-stone-dark/40 hover:border-vermillion/30 text-ink font-medium rounded-lg transition-all text-sm">Explore Dynasties</a>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>

@@ -53,8 +53,8 @@ export const buildings: Building[] = [
       '/images/forbidden-city-2.webp'
     ],
     nearby: [
-      { name: 'Temple of Heaven', href: '/buildings/temple-of-heaven' },
-      { name: 'Summer Palace', href: '/buildings/summer-palace' }
+      { name: 'Temple of Heaven', href: '/buildings/temple-of-heaven/' },
+      { name: 'Summer Palace', href: '/buildings/summer-palace/' }
     ],
     travel: {
       visitable: true,
@@ -94,8 +94,8 @@ export const buildings: Building[] = [
       '/images/temple-of-heaven-2.webp'
     ],
     nearby: [
-      { name: 'Forbidden City', href: '/buildings/forbidden-city' },
-      { name: 'Summer Palace', href: '/buildings/summer-palace' }
+      { name: 'Forbidden City', href: '/buildings/forbidden-city/' },
+      { name: 'Summer Palace', href: '/buildings/summer-palace/' }
     ],
     travel: {
       visitable: true,
@@ -135,7 +135,7 @@ export const buildings: Building[] = [
       '/images/great-wall-2.webp'
     ],
     nearby: [
-      { name: 'Forbidden City', href: '/buildings/forbidden-city' }
+      { name: 'Forbidden City', href: '/buildings/forbidden-city/' }
     ],
     travel: {
       visitable: true,
@@ -175,7 +175,7 @@ export const buildings: Building[] = [
       '/images/foguang-temple-2.webp'
     ],
     nearby: [
-      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda' }
+      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda/' }
     ],
     travel: {
       visitable: true,
@@ -216,7 +216,7 @@ export const buildings: Building[] = [
       '/images/yingxian-pagoda-2.webp'
     ],
     nearby: [
-      { name: 'Foguang Temple', href: '/buildings/foguang-temple' }
+      { name: 'Foguang Temple', href: '/buildings/foguang-temple/' }
     ],
     travel: {
       visitable: true,
@@ -257,8 +257,8 @@ export const buildings: Building[] = [
       '/images/summer-palace-2.webp'
     ],
     nearby: [
-      { name: 'Forbidden City', href: '/buildings/forbidden-city' },
-      { name: 'Temple of Heaven', href: '/buildings/temple-of-heaven' }
+      { name: 'Forbidden City', href: '/buildings/forbidden-city/' },
+      { name: 'Temple of Heaven', href: '/buildings/temple-of-heaven/' }
     ],
     travel: {
       visitable: true,
@@ -298,7 +298,7 @@ export const buildings: Building[] = [
       '/images/longmen-grottoes-2.webp'
     ],
     nearby: [
-      { name: 'Yungang Grottoes', href: '/buildings/yungang-grottoes' },
+      { name: 'Yungang Grottoes', href: '/buildings/yungang-grottoes/' },
       { name: 'White Horse Temple', href: 'https://en.wikipedia.org/wiki/White_Horse_Temple' }
     ],
     travel: {
@@ -339,8 +339,8 @@ export const buildings: Building[] = [
       '/images/yungang-grottoes-2.webp'
     ],
     nearby: [
-      { name: 'Longmen Grottoes', href: '/buildings/longmen-grottoes' },
-      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda' },
+      { name: 'Longmen Grottoes', href: '/buildings/longmen-grottoes/' },
+      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda/' },
       { name: 'Hanging Temple', href: 'https://en.wikipedia.org/wiki/Hanging_Temple' }
     ],
     travel: {
@@ -381,8 +381,8 @@ export const buildings: Building[] = [
       '/images/mogao-caves-2.webp'
     ],
     nearby: [
-      { name: 'Longmen Grottoes', href: '/buildings/longmen-grottoes' },
-      { name: 'Yungang Grottoes', href: '/buildings/yungang-grottoes' }
+      { name: 'Longmen Grottoes', href: '/buildings/longmen-grottoes/' },
+      { name: 'Yungang Grottoes', href: '/buildings/yungang-grottoes/' }
     ],
     travel: {
       visitable: true,
@@ -422,8 +422,8 @@ export const buildings: Building[] = [
       '/images/ming-tombs-2.webp'
     ],
     nearby: [
-      { name: 'Forbidden City', href: '/buildings/forbidden-city' },
-      { name: 'Great Wall', href: '/buildings/great-wall' }
+      { name: 'Forbidden City', href: '/buildings/forbidden-city/' },
+      { name: 'Great Wall', href: '/buildings/great-wall/' }
     ],
     travel: {
       visitable: true,
@@ -463,8 +463,8 @@ export const buildings: Building[] = [
       '/images/zhaozhou-bridge-2.webp'
     ],
     nearby: [
-      { name: 'Foguang Temple', href: '/buildings/foguang-temple' },
-      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda' }
+      { name: 'Foguang Temple', href: '/buildings/foguang-temple/' },
+      { name: 'Yingxian Pagoda', href: '/buildings/yingxian-pagoda/' }
     ],
     travel: {
       visitable: true,
@@ -504,8 +504,8 @@ export const buildings: Building[] = [
       '/images/giant-wild-goose-pagoda-2.webp'
     ],
     nearby: [
-      { name: 'Great Wall', href: '/buildings/great-wall' },
-      { name: 'Foguang Temple', href: '/buildings/foguang-temple' }
+      { name: 'Great Wall', href: '/buildings/great-wall/' },
+      { name: 'Foguang Temple', href: '/buildings/foguang-temple/' }
     ],
     travel: {
       visitable: true,

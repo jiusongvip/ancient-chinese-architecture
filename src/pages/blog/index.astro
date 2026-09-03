@@ -39,7 +39,7 @@ import { articles } from '../../data/blog';
       <h2 class="font-display font-bold text-2xl text-ink mb-6">All Articles</h2>
       <div class="space-y-6">
       {articles.map(a => (
-        <a href={`/blog/${a.slug}`} class="block group p-6 rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-md transition-all">
+        <a href={`/blog/${a.slug}/`} class="block group p-6 rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-md transition-all">
           <p class="text-xs text-ink-muted mb-2">{a.date}</p>
           <h2 class="font-display font-bold text-xl text-ink mb-2 group-hover:text-vermillion transition-colors">{a.title}</h2>
           <p class="text-sm text-ink-muted leading-relaxed">{a.desc}</p>

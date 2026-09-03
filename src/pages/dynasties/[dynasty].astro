@@ -115,7 +115,7 @@ if (!d) return Astro.redirect('/dynasties/');
       <h2 class="font-display font-bold text-2xl text-ink mb-6">Navigate Dynasties</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {dynasties.map(dd => (
-          <a href={`/dynasties/${dd.id}`} class={`block p-4 rounded-xl border transition-all text-center ${dd.id === dynasty ? 'border-vermillion/40 bg-vermillion/5' : 'border-stone-dark/30 bg-stone-light hover:border-vermillion/20'}`}>
+          <a href={`/dynasties/${dd.id}/`} class={`block p-4 rounded-xl border transition-all text-center ${dd.id === dynasty ? 'border-vermillion/40 bg-vermillion/5' : 'border-stone-dark/30 bg-stone-light hover:border-vermillion/20'}`}>
             <span class="font-display font-semibold text-ink text-sm block">{dd.name}</span>
             <span class="text-xs text-ink-muted">{dd.years}</span>
           </a>

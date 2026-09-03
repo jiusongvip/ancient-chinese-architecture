@@ -24,7 +24,7 @@ import { dynasties } from '../../data/dynasties';
   <section class="py-16 px-6 bg-stone-light">
     <div class="max-w-[1400px] mx-auto space-y-8">
       {dynasties.map((d, i) => (
-        <a href={`/dynasties/${d.id}`} class="group block rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-lg transition-all duration-300 overflow-hidden">
+        <a href={`/dynasties/${d.id}/`} class="group block rounded-2xl border border-stone-dark/30 bg-stone hover:border-vermillion/20 hover:shadow-lg transition-all duration-300 overflow-hidden">
           <div class="grid grid-cols-1 md:grid-cols-[280px_1fr]">
             <div class="aspect-[4/3] md:aspect-auto md:h-full overflow-hidden bg-stone-dark">
               <img src={d.image} alt={`${d.name} Dynasty architecture`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />

@@ -38,7 +38,7 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/dougong.webp',
-    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs' }, { name: 'Columns & Beams', href: '#' }]
+    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs/' }, { name: 'Columns & Beams', href: '#' }]
   },
   {
     id: 'roofs',
@@ -70,7 +70,7 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/roof-forms.webp',
-    relatedElements: [{ name: 'Dougong Brackets', href: '/elements/dougong' }, { name: 'Decorative Motifs', href: '/elements/decoration' }]
+    relatedElements: [{ name: 'Dougong Brackets', href: '/elements/dougong/' }, { name: 'Decorative Motifs', href: '/elements/decoration/' }]
   },
   {
     id: 'courtyards',
@@ -98,7 +98,7 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/courtyard.webp',
-    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs' }, { name: 'Decorative Motifs', href: '/elements/decoration' }]
+    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs/' }, { name: 'Decorative Motifs', href: '/elements/decoration/' }]
   },
   {
     id: 'decoration',
@@ -127,7 +127,7 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/decoration.webp',
-    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs' }, { name: 'Courtyard Layouts', href: '/elements/courtyards' }]
+    relatedElements: [{ name: 'Roof Forms', href: '/elements/roofs/' }, { name: 'Courtyard Layouts', href: '/elements/courtyards/' }]
   },
   {
     id: 'materials',
@@ -158,7 +158,7 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/materials.webp',
-    relatedElements: [{ name: 'Dougong Brackets', href: '/elements/dougong' }, { name: 'Roof Forms', href: '/elements/roofs' }]
+    relatedElements: [{ name: 'Dougong Brackets', href: '/elements/dougong/' }, { name: 'Roof Forms', href: '/elements/roofs/' }]
   },
   {
     id: 'vernacular',
@@ -189,6 +189,6 @@ export const elements: Element[] = [
       ]
     },
     image: '/images/vernacular.webp',
-    relatedElements: [{ name: 'Courtyard Layouts', href: '/elements/courtyards' }, { name: 'Materials & Structure', href: '/elements/materials' }]
+    relatedElements: [{ name: 'Courtyard Layouts', href: '/elements/courtyards/' }, { name: 'Materials & Structure', href: '/elements/materials/' }]
   }
 ];

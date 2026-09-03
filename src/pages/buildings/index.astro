@@ -44,7 +44,7 @@ const types = [...new Set(buildings.map(b => b.type))];
   <section class="py-16 px-6 bg-stone-light">
     <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {buildings.map(b => (
-        <a href={`/buildings/${b.id}`} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
+        <a href={`/buildings/${b.id}/`} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
           <div class="aspect-[4/3] bg-gradient-to-br from-vermillion/10 via-stone-dark/50 to-jade/10 flex items-center justify-center relative overflow-hidden">
             <img src={b.images[0]} alt={b.name} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             <span class="font-display font-bold text-8xl text-ink/8 select-none absolute">{b.name[0]}</span>

@@ -24,7 +24,7 @@ import { elements } from '../../data/elements';
   <section class="py-16 px-6 bg-stone-light">
     <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
       {elements.map(el => (
-        <a href={`/elements/${el.id}`} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
+        <a href={`/elements/${el.id}/`} class="group block rounded-2xl overflow-hidden border border-stone-dark/30 bg-stone hover:border-vermillion/25 hover:shadow-lg transition-all duration-300">
           <div class="aspect-[16/9] overflow-hidden bg-gradient-to-br from-vermillion/10 via-stone-dark/50 to-jade/10">
             <img src={el.image} alt={el.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
