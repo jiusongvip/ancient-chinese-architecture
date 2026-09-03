@@ -2,13 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-
-const articles = [
-  { title: 'The Mathematics of Dougong: How Ancient Builders Created Earthquake-Proof Structures', date: '2026-07-15', slug: 'dougong-mathematics', desc: 'An exploration of how the interlocking bracket system distributes weight and dissipates seismic energy.' },
-  { title: 'Lost and Found: Recently Discovered Tang Dynasty Temple Ruins', date: '2026-06-28', slug: 'tang-temple-ruins', desc: 'Archaeological discoveries in Shanxi province reveal new insights into Tang dynasty religious architecture.' },
-  { title: 'Feng Shui and Architecture: The Science Behind the Alignment', date: '2026-06-10', slug: 'feng-shui-architecture', desc: 'How ancient Chinese builders used geomancy principles that align with modern environmental science.' },
-  { title: 'Why Chinese Roofs Curve Upward: Engineering Meets Symbolism', date: '2026-05-22', slug: 'curved-roofs', desc: 'The practical and symbolic reasons behind one of architecture\'s most distinctive silhouettes.' },
-];
+import { articles } from '../../data/blog';
 ---
 
 <Layout title="Blog | Articles on Ancient Chinese Architecture" description="In-depth articles on ancient Chinese architecture covering dougong engineering, dynasty styles, roof construction, and the cultural history of China's buildings.">
