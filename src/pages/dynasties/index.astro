@@ -38,9 +38,9 @@ import { dynasties } from '../../data/dynasties';
               <h3 class="font-display font-semibold text-sm text-ink mb-2">Key Features</h3>
               <div class="flex flex-wrap gap-2 mb-4">
                 {d.features.slice(0, 3).map(f => (
-                  <span class="text-xs text-ink-muted/70 bg-stone-light px-2.5 py-1 rounded-md">{f}</span>
+                  <span class="text-xs text-ink-muted/80 bg-stone-light px-2.5 py-1 rounded-md">{f}</span>
                 ))}
-                {d.features.length > 3 && <span class="text-xs text-ink-muted/50 px-2.5 py-1">+{d.features.length - 3} more</span>}
+                {d.features.length > 3 && <span class="text-xs text-ink-muted/80 px-2.5 py-1">+{d.features.length - 3} more</span>}
               </div>
               <span class="inline-flex items-center gap-1.5 text-sm font-medium text-vermillion group-hover:gap-2.5 transition-all">
                 Explore {d.name} architecture
