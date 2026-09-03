@@ -107,13 +107,25 @@ const metaDescription = truncateDescription(description);
 </head>
 <body class="bg-stone-light text-ink antialiased">
   <slot />
-  <!-- Google tag (gtag.js) - loaded at end of body to avoid render blocking -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-B7BTFNQQ4W"></script>
   <script is:inline>
+    // Google Analytics 4 — deferred until first user interaction to keep initial render fast
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-B7BTFNQQ4W');
+    function loadGtag(){
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B7BTFNQQ4W';
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+      loadGtag();
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(loadGtag, 2000);
+      });
+    }
   </script>
 </body>
 </html>
