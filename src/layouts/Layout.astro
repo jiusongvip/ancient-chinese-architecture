@@ -42,6 +42,7 @@ const metaDescription = truncateDescription(description);
   <title>{title}</title>
   <link rel="canonical" href={canonicalUrl} />
   <link rel="alternate" hreflang="en" href={canonicalUrl} />
+  <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -76,7 +77,10 @@ const metaDescription = truncateDescription(description);
        "url": "https://www.ancient-chinese-architecture.com/about/",
        "jobTitle": "Architectural Historians and Researchers",
        "description": "A team of researchers dedicated to documenting and explaining 3,000 years of Chinese architectural heritage.",
-       "knowsAbout": ["Chinese Architecture", "Architectural History", "East Asian Studies", "Cultural Heritage"]
+       "knowsAbout": ["Chinese Architecture", "Architectural History", "East Asian Studies", "Cultural Heritage"],
+       "sameAs": [
+         "https://github.com/jiusongvip/ancient-chinese-architecture"
+       ]
      }
    </script>
    <script type="application/ld+json">
@@ -86,7 +90,10 @@ const metaDescription = truncateDescription(description);
       "name": "Ancient Chinese Architecture",
       "url": "https://www.ancient-chinese-architecture.com",
       "description": "A digital museum exploring 3,000 years of Chinese architectural heritage.",
-      "logo": "https://www.ancient-chinese-architecture.com/og-default.jpg"
+      "logo": "https://www.ancient-chinese-architecture.com/og-default.jpg",
+      "sameAs": [
+        "https://github.com/jiusongvip/ancient-chinese-architecture"
+      ]
     }
   </script>
   <script type="application/ld+json">

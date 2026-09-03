@@ -13,6 +13,11 @@ const footerLinks = {
     { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
     { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/about/#contact' },
+  ],
+  Legal: [
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Use', href: '/terms' },
   ],
 };
 ---
@@ -34,7 +39,7 @@ const footerLinks = {
 
       {Object.entries(footerLinks).map(([category, links]) => (
         <div>
-          <h4 class="font-display font-semibold text-white text-sm mb-4">{category}</h4>
+          <p class="font-display font-semibold text-white text-sm mb-4">{category}</p>
           <ul class="space-y-2.5">
             {links.map(link => (
               <li><a href={link.href} class="text-sm text-white/50 hover:text-white transition-colors">{link.label}</a></li>

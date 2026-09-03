@@ -1,0 +1,64 @@
+# Ancient Chinese Architecture
+
+> A digital museum exploring 3,000 years of Chinese architectural heritage — timber-frame construction, dougong brackets, roof forms, dynasty styles, and travel guides to surviving buildings.
+
+Ancient Chinese Architecture is a reference and travel resource covering the building tradition of China from the Shang dynasty (1600 BCE) to the fall of the Qing (1911 CE). Content is organized by dynasty, structural element, and individual landmark building, and includes practical travel information for visiting surviving sites. Editorial standards: every page is built from verifiable sources including archaeological reports, conservation documents, the Yingzao Fashi (1103 CE), and current academic research.
+
+## Pages
+
+- [Home — Ancient Chinese Architecture](https://www.ancient-chinese-architecture.com/): Overview of 3,000 years of Chinese architecture: what defines the tradition, the dougong bracket system, timber-frame resilience, and entry points for visitors and researchers.
+- [Urban Planning — Walled Cities, Grids & the Central Axis](https://www.ancient-chinese-architecture.com/urban-planning/): How Chinese cities were planned from Shang walled cities to the Kaogongji grid, Tang Chang'an's ward system, the Beijing Central Axis, and fengshui siting.
+- [FAQ — Common Questions Answered](https://www.ancient-chinese-architecture.com/faq/): Answers on the oldest surviving wooden buildings, curved roofs, dougong, roof beasts, color hierarchy, siheyuan layout, and where to see Tang architecture.
+- [About — Editorial Standards & Sources](https://www.ancient-chinese-architecture.com/about/): The project's mission, editorial standards, and contact information.
+
+### Dynasties
+
+- [Dynasties — Full Timeline](https://www.ancient-chinese-architecture.com/dynasties/): Navigate all nine dynastic periods and their architectural characteristics.
+- [Shang Dynasty (1600-1046 BCE)](https://www.ancient-chinese-architecture.com/dynasties/shang/): Rammed-earth foundations and the earliest Chinese palace enclosures.
+- [Zhou Dynasty (1046-256 BCE)](https://www.ancient-chinese-architecture.com/dynasties/zhou/): Courtyard compounds and the emergence of bracket sets.
+- [Qin Dynasty (221-206 BCE)](https://www.ancient-chinese-architecture.com/dynasties/qin/): The Great Wall and monumental state construction.
+- [Han Dynasty (206 BCE-220 CE)](https://www.ancient-chinese-architecture.com/dynasties/han/): Multi-story towers and ceramic tile roofs.
+- [Tang Dynasty (618-907 CE)](https://www.ancient-chinese-architecture.com/dynasties/tang/): The golden age — bold proportions and sweeping roofs; the oldest surviving timber halls.
+- [Song Dynasty (960-1279 CE)](https://www.ancient-chinese-architecture.com/dynasties/song/): Refined elegance and intricate dougong; the Yingzao Fashi building manual.
+- [Yuan Dynasty (1271-1368 CE)](https://www.ancient-chinese-architecture.com/dynasties/yuan/): Mongol rule and Tibetan Buddhist architectural influence.
+- [Ming Dynasty (1368-1644 CE)](https://www.ancient-chinese-architecture.com/dynasties/ming/): The Forbidden City and standardized building modules.
+- [Qing Dynasty (1644-1912 CE)](https://www.ancient-chinese-architecture.com/dynasties/qing/): Ornate decoration and garden architecture.
+- [Compare Dynasties](https://www.ancient-chinese-architecture.com/compare/): Side-by-side comparison of dynasty styles.
+
+### Elements
+
+- [Elements — The Language of Chinese Architecture](https://www.ancient-chinese-architecture.com/elements/): The six defining elements that distinguish Chinese buildings from other traditions.
+- [Dougong Brackets](https://www.ancient-chinese-architecture.com/elements/dougong/): The interlocking timber bracket system that transfers roof load and absorbs seismic energy.
+- [Roof Forms](https://www.ancient-chinese-architecture.com/elements/roofs/): Hip, gable, hip-and-gable, and pyramidal roofs and the status hierarchy they encode.
+- [Courtyard Layouts](https://www.ancient-chinese-architecture.com/elements/courtyards/): The siheyuan and courtyard as the basic cell of Chinese building.
+- [Decorative Systems](https://www.ancient-chinese-architecture.com/elements/decoration/): Color hierarchy, ridge beasts, and painted ornament.
+- [Materials](https://www.ancient-chinese-architecture.com/elements/materials/): Timber, rammed earth, brick, and stone construction techniques.
+- [Vernacular Housing](https://www.ancient-chinese-architecture.com/elements/vernacular/): Regional folk architecture across China.
+
+### Buildings
+
+- [Buildings — Guide to Landmark Sites](https://www.ancient-chinese-architecture.com/buildings/): All featured buildings with history, engineering, and visitor information.
+- [Cave Architecture — Mogao, Yungang & Longmen](https://www.ancient-chinese-architecture.com/buildings/caves/): A thousand years of cave temples carved from living rock along the Silk Road.
+- [Forbidden City](https://www.ancient-chinese-architecture.com/buildings/forbidden-city/): The Ming-Qing imperial palace complex in Beijing, 980 buildings on a 960-meter axis.
+- [Great Wall](https://www.ancient-chinese-architecture.com/buildings/great-wall/): Two millennia of rammed-earth and brick frontier fortification.
+- [Temple of Heaven](https://www.ancient-chinese-architecture.com/buildings/temple-of-heaven/): The Ming-Qing altar complex in Beijing, famed for its blue-glazed Hall of Prayer.
+- [Summer Palace](https://www.ancient-chinese-architecture.com/buildings/summer-palace/): Qing imperial garden architecture around Kunming Lake.
+- [Ming Tombs](https://www.ancient-chinese-architecture.com/buildings/ming-tombs/): Thirteen Ming imperial mausolea in a fengshui-sited valley near Beijing.
+- [Foguang Temple](https://www.ancient-chinese-architecture.com/buildings/foguang-temple/): Home to the East Hall (857 CE), the oldest surviving timber building in China.
+- [Yingxian Pagoda](https://www.ancient-chinese-architecture.com/buildings/yingxian-pagoda/): The 67-meter timber pagoda of 1056 CE that survived over 40 earthquakes.
+- [Mogao Caves](https://www.ancient-chinese-architecture.com/buildings/mogao-caves/): 735 Buddhist cave temples at Dunhuang with 45,000 sqm of murals.
+- [Yungang Grottoes](https://www.ancient-chinese-architecture.com/buildings/yungang-grottoes/): The Northern Wei imperial cave project at Datong (460-525 CE).
+- [Longmen Grottoes](https://www.ancient-chinese-architecture.com/buildings/longmen-grottoes/): 2,300+ caves and 110,000 statues carved at Luoyang.
+- [Giant Wild Goose Pagoda](https://www.ancient-chinese-architecture.com/buildings/giant-wild-goose-pagoda/): The Tang brick pagoda in Xi'an that preserves Tang proportions.
+- [Zhaozhou Bridge](https://www.ancient-chinese-architecture.com/buildings/zhaozhou-bridge/): The 7th-century open-spandrel stone arch bridge in Hebei.
+
+### Guides & Extras
+
+- [Blog](https://www.ancient-chinese-architecture.com/blog/): Articles on dougong mathematics, Tang temple discoveries, and fengshui.
+- [Photo Gallery](https://www.ancient-chinese-architecture.com/gallery/): Curated photographs of surviving buildings.
+
+## Optional
+
+- [Photography Tips](https://www.ancient-chinese-architecture.com/gallery/): Practical guidance for photographing Chinese architecture on the homepage and gallery.
+- [Seasonal Travel Picks](https://www.ancient-chinese-architecture.com/): Month-by-month recommendation of which sites to visit and when.
+- [Itineraries](https://www.ancient-chinese-architecture.com/): Three-day Beijing, Shanxi weekend, and two-week grand-tour routes.
