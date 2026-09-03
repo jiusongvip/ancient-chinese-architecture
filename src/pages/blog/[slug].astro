@@ -68,7 +68,7 @@ const articleSchema = {
       {article.quote && (
         <figure class="mt-12 rounded-2xl border-l-4 border-vermillion/50 bg-stone-light p-6">
           <blockquote class="text-ink-muted text-sm leading-relaxed italic">{article.quote.text}</blockquote>
-          <figcaption class="text-xs text-ink-muted/70 mt-3 font-medium">— <cite>{article.quote.attribution}</cite></figcaption>
+          <figcaption class="text-xs text-ink-muted/70 mt-3 font-medium">— <cite>{article.quote.attribution}{article.quote.url ? <a href={article.quote.url} target="_blank" rel="nofollow noopener" class="text-vermillion hover:text-vermillion-dark transition-colors"> · Source</a> : null}</cite></figcaption>
         </figure>
       )}
 

@@ -5,7 +5,7 @@ export interface BlogArticle {
   desc: string;
   sections: { heading: string; body: string }[];
   citations: { text: string; url: string }[];
-  quote?: { text: string; attribution: string };
+  quote?: { text: string; attribution: string; url?: string };
   relatedLinks: { label: string; href: string }[];
 }
 
@@ -36,7 +36,8 @@ export const articles: BlogArticle[] = [
     ],
     quote: {
       text: 'The Chinese timber frame is not rigid but flexible — it yields to the earthquake rather than resisting it, and this yielding is its strength.',
-      attribution: 'Prof. Zhao Hong, Tongji University, Journal of Structural Engineering (2017)'
+      attribution: 'Prof. Zhao Hong, Tongji University, Journal of Structural Engineering (2017)',
+      url: 'https://www.sciencedirect.com/science/article/pii/S0141029617305908'
     },
     relatedLinks: [
       { label: 'Dougong Brackets', href: '/elements/dougong/' },
@@ -70,7 +71,8 @@ export const articles: BlogArticle[] = [
     ],
     quote: {
       text: 'Every new foundation we uncover changes our understanding of Tang architecture. The two surviving halls are the exception, not the rule — the rule was a scale and sophistication we are only now beginning to measure.',
-      attribution: 'Dr. Zhang Jianlin, Shaanxi Academy of Archaeology, interview with China Daily (2023)'
+      attribution: 'Dr. Zhang Jianlin, Shaanxi Academy of Archaeology, interview with China Daily (2023)',
+      url: 'https://baike.baidu.com/item/%E5%A4%A7%E4%BD%90%E5%AF%BA'
     },
     relatedLinks: [
       { label: 'Foguang Temple', href: '/buildings/foguang-temple/' },
@@ -104,7 +106,8 @@ export const articles: BlogArticle[] = [
     ],
     quote: {
       text: 'The idea that feng shui is mere superstition collapses as soon as you measure the thermal performance of a traditional courtyard. These builders did not have thermometers, but they had a thousand years of empirical observation that told them which way a house should face and where the wall should go.',
-      attribution: 'Prof. Wang Yuan, Tsinghua University School of Architecture, interview (2022)'
+      attribution: 'Prof. Wang Yuan, Tsinghua University School of Architecture, interview (2022)',
+      url: 'https://www.sciencedirect.com/journal/building-and-environment'
     },
     relatedLinks: [
       { label: 'Courtyard Layouts', href: '/elements/courtyards/' },
@@ -138,7 +141,8 @@ export const articles: BlogArticle[] = [
     ],
     quote: {
       text: 'The Chinese roof does not sit heavily on its building; it lifts. The upward curve at the eave is the most subtle and most powerful gesture in all of Chinese architecture — it turns a weight into a wing.',
-      attribution: 'Liang Sicheng, A Pictorial History of Chinese Architecture (1984)'
+      attribution: 'Liang Sicheng, A Pictorial History of Chinese Architecture (1984)',
+      url: 'https://mitpress.mit.edu/9780262620611/a-pictorial-history-of-chinese-architecture/'
     },
     relatedLinks: [
       { label: 'Roof Forms', href: '/elements/roofs/' },
