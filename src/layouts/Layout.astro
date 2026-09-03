@@ -65,7 +65,7 @@ const metaDescription = truncateDescription(description);
    <meta name="twitter:description" content={metaDescription} />
    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 
-   <meta name="author" content="Ancient Chinese Architecture Editorial Team" />
+   <meta name="author" content="Ancient Chinese Architecture" />
    <meta name="date" content="2026-07-31" />
 
    <!-- JSON-LD Structured Data -->
@@ -73,7 +73,8 @@ const metaDescription = truncateDescription(description);
      {
        "@context": "https://schema.org",
        "@type": "Person",
-       "name": "Ancient Chinese Architecture Editorial Team",
+       "name": "Ancient Chinese Architecture",
+       "alternateName": "Ancient Chinese Architecture Editorial Team",
        "url": "https://www.ancient-chinese-architecture.com/about/",
        "jobTitle": "Architectural Historians and Researchers",
        "description": "A team of researchers dedicated to documenting and explaining 3,000 years of Chinese architectural heritage.",
