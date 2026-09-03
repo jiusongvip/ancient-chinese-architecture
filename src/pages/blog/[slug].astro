@@ -59,7 +59,7 @@ const articleSchema = {
           <div>
             <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
             {s.body.split('\n\n').map(p => (
-              <p class="text-ink-muted leading-relaxed mb-4 last:mb-0">{p}</p>
+              <p class="text-ink-muted leading-relaxed mb-4 last:mb-0" set:html={p}></p>
             ))}
           </div>
         ))}
