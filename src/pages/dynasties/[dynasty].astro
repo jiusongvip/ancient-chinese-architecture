@@ -34,7 +34,7 @@ const faqSchema = d.faq && d.faq.length > 0
   : null;
 ---
 
- <Layout title={`${d.name} Dynasty Architecture | Ancient Chinese Architecture`} description={d.summary}>
+ <Layout title={`${d.name} Dynasty Architecture – History, Features & Famous Buildings`} description={d.summary}>
    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
    <Nav />
@@ -49,6 +49,7 @@ const faqSchema = d.faq && d.faq.length > 0
         <span class="px-3 py-1.5 rounded-full bg-vermillion/10 text-vermillion text-sm font-medium">{d.years}</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">{d.name} Dynasty Architecture</h1>
+      {d.tagline && <p class="text-base text-vermillion font-medium mb-3 italic">{d.tagline}</p>}
       <p class="text-lg text-ink-muted max-w-[70ch]">{d.summary}</p>
     </div>
   </section>
@@ -66,16 +67,35 @@ const faqSchema = d.faq && d.faq.length > 0
          <h2 class="font-display font-bold text-2xl text-ink mb-6">Overview</h2>
          <p class="text-ink-muted leading-relaxed text-lg">{d.description}</p>
        </div>
-       <div class="space-y-8">
-         {d.sections.map(s => (
-           <div>
-             <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
-             {s.body.split('\n\n').map(p => (
-               <p class="text-ink-muted leading-relaxed mb-4 last:mb-0">{p}</p>
-             ))}
-           </div>
-         ))}
-       </div>
+        <div class="space-y-8">
+          {d.sections.map(s => (
+            <div>
+              <h2 class="font-display font-bold text-2xl text-ink mb-3">{s.heading}</h2>
+              {s.body.split('\n\n').map(p => (
+                <p class="text-ink-muted leading-relaxed mb-4 last:mb-0">{p}</p>
+              ))}
+              {s.callout && (
+                <div class="mt-6 rounded-2xl border border-vermillion/20 bg-vermillion/5 p-6">
+                  <div class="flex items-start gap-4">
+                    {s.callout.image && (
+                      <img src={s.callout.image} alt={s.callout.title} class="w-20 h-20 rounded-xl object-cover flex-shrink-0" loading="lazy" />
+                    )}
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm mb-2"><span class="text-lg mr-1">{s.callout.icon}</span><span class="font-display font-semibold text-ink">{s.callout.title}</span></p>
+                      <p class="text-sm text-ink-muted leading-relaxed">{s.callout.body}</p>
+                      {s.callout.link && (
+                        <a href={s.callout.link.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-vermillion hover:text-vermillion-dark mt-3 transition-colors">
+                          {s.callout.link.text}
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
      </div>
      <div class="lg:col-span-2">
        <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
@@ -138,6 +158,43 @@ const faqSchema = d.faq && d.faq.length > 0
             </details>
           ))}
         </div>
+      </div>
+    </section>
+  )}
+
+  {d.museumVisit && (
+    <section class="py-12 px-6 bg-stone">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-display font-bold text-2xl text-ink mb-3">Plan a {d.name} Architecture Trip</h2>
+        <p class="text-ink-muted mb-8 max-w-[70ch]">{d.museumVisit.intro}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {d.museumVisit.spots.map((spot, i) => (
+            <div class={`rounded-2xl border ${i === 0 ? 'border-vermillion/30 bg-stone-light' : 'border-stone-dark/30 bg-stone-light'} overflow-hidden`}>
+              {spot.image && (
+                <img src={spot.image} alt={spot.name} class="w-full aspect-[16/9] object-cover" loading="lazy" />
+              )}
+              <div class="p-6">
+                <h3 class="font-display font-bold text-lg text-ink mb-2">
+                  {spot.href ? (
+                    <a href={spot.href} target="_blank" rel="noopener noreferrer" class="hover:text-vermillion transition-colors">{spot.name} <svg class="inline w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+                  ) : spot.name}
+                </h3>
+                <p class="text-sm text-ink-muted leading-relaxed">{spot.highlight}</p>
+                {spot.tip && (
+                  <p class="text-xs text-vermillion mt-3 flex items-start gap-1.5">
+                    <svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    {spot.tip}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        {d.museumVisit.extend && (
+          <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
+            <p class="text-sm text-ink-muted leading-relaxed"><span class="font-semibold text-ink">Explore further: </span>{d.museumVisit.extend}</p>
+          </div>
+        )}
       </div>
     </section>
   )}

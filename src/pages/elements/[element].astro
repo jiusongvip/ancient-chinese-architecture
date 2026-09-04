@@ -34,7 +34,7 @@ const faqSchema = el.faq && el.faq.length > 0
   : null;
 ---
 
- <Layout title={`${el.name} | Ancient Chinese Architecture`} description={el.description}>
+ <Layout title={`${el.name}: History, Types & Examples | Ancient Chinese Architecture`} description={el.description}>
    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
    <Nav />

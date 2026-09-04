@@ -4,11 +4,23 @@ export interface Dynasty {
   years: string;
   description: string;
   summary: string;
+  tagline?: string;
   features: string[];
   faq: { q: string; a: string }[];
   image: string;
   notableBuildings: { name: string; href: string }[];
-  sections: { heading: string; body: string }[];
+  sections: { heading: string; body: string; callout?: { icon: string; title: string; body: string; image?: string; link?: { text: string; href: string } } }[];
+  museumVisit?: {
+    intro: string;
+    spots: {
+      name: string;
+      href?: string;
+      highlight: string;
+      image?: string;
+      tip?: string;
+    }[];
+    extend?: string;
+  };
 }
 
 export const dynasties: Dynasty[] = [
@@ -17,7 +29,7 @@ export const dynasties: Dynasty[] = [
     name: 'Shang',
     years: '1600-1046 BCE',
     description: 'The Shang dynasty marks the earliest period of Chinese architecture with surviving archaeological evidence — rammed-earth foundations at Zhengzhou still rise several meters after 3,000 years. Builders used hangtu (compacted earth) platforms and early timber frames: excavations at Yinxu (near Anyang) have uncovered palace foundations measuring up to 40 by 60 meters, with post holes showing sophisticated column grids, and the tomb of Queen Fu Hao preserves a two-story timber chamber intact. Shang cities were planned along north-south axes, and oracle bone inscriptions record the construction rituals — even the sacrifices offered when foundations were laid — that tied building to religion from the very beginning.',
-    summary: 'Rammed earth foundations, early timber frames, and the first north-south axial planning.',
+    summary: 'Discover Shang Dynasty architecture: rammed-earth walls, palace foundations, and early Chinese urban planning. Learn about Zhengzhou and Yinxu sites with reconstruction images.',
     features: ['Rammed-earth (hangtu) foundations', 'Timber post-and-beam construction', 'North-south axial orientation', 'Large ceremonial platforms', 'Earliest bronze architectural fittings'],
     faq: [
       { q: 'What can visitors see of Shang architecture today?', a: "The Yinxu site near Anyang preserves palace foundations, rammed-earth city walls, and the tomb of Fu Hao — a queen-general whose intact burial included a two-story timber chamber. The on-site museum displays excavated buildings, bronzes, and the only royal Shang tomb found unlooted." },
@@ -37,7 +49,8 @@ export const dynasties: Dynasty[] = [
     name: 'Zhou',
     years: '1046-256 BCE',
     description: 'The Zhou dynasty turned architecture into a written law. The ritual text Zhou Li prescribed building dimensions by rank — a feudal lord\'s main hall could not exceed the king\'s, and the number of courtyards, roof tiles, and even column colors were regulated. It was under Zhou rule that the siheyuan courtyard house matured, ceramic roof tiles appeared, and the dougong bracket system began to take recognizable form. Zhou capitals were rammed-earth cities with walls up to 20 meters thick at the base — a wall-grid-palace template that shaped every later Chinese city, from Chang\'an to Beijing.',
-    summary: 'Codified courtyard compounds, social-rank building regulations, and the emergence of roof tiles.',
+    summary: 'Zhou Dynasty architecture established China\'s first building codes: courtyard compounds, rank-based regulations, and ceramic roof tiles. Learn about the siheyuan layout and rammed-earth walls.',
+    tagline: 'More than an article — a field guide to Zhou architecture. From rammed-earth ruins to bronze inscriptions in museums, we show you where history happened.',
     features: ['Courtyard compound (siheyuan) standardization', 'Rank-based building codes', 'Ceramic roof tiles', 'Early dougong bracket prototypes', 'Rammed-earth city walls'],
     faq: [
       { q: 'How did the Zhou Rites control architecture?', a: "The Zhou Li (Rites of Zhou) prescribed everything by rank: hall width, courtyard count, roof type, column color, and ornament. A lord's hall could not exceed the king's, and commoners were barred from the highest forms — rules enforced for three millennia of Chinese building." },
@@ -46,10 +59,29 @@ export const dynasties: Dynasty[] = [
     ],
     image: '/images/dynasty-zhou.webp',
     notableBuildings: [{ name: 'Zhou Royal City (Haojing)', href: 'https://en.wikipedia.org/wiki/Haojing' }],
+    museumVisit: {
+      intro: 'Want to bring the history to life? These two sites are the best starting points:',
+      spots: [
+        {
+          name: 'Baoji Zhouyuan Museum (Top Pick)',
+          href: 'https://www.sogou.com/web?query=宝鸡周原博物院',
+          highlight: 'Built directly on the Zhouyuan excavation site. See Western Zhou palace foundations, architectural components, and masterpieces like the Shi Qiang Pan. Free admission.',
+          image: '/images/zhou-zhouyuan-2.webp',
+          tip: 'Allow 2-3 hours; combine with the nearby Bronze Ware Museum for a full day'
+        },
+        {
+          name: 'Luoyang Tianzi Jialiu Museum',
+          href: 'https://www.sogou.com/web?query=洛阳天子驾六博物馆',
+          highlight: 'Built on the Eastern Zhou royal city site. The highlight is the "Son of Heaven\'s Six-Horse Chariot" pit — the ultimate physical proof of Zhou ritual hierarchy.',
+          image: '/images/zhou-luoyang-museum.webp'
+        }
+      ],
+      extend: 'For vassal state history, visit the Western Yan Capital Site Museum in Beijing or the Chenzhuang-Tangkou Western Zhou Site Museum in Zibo, Shandong (State of Qi).'
+    },
     sections: [
-      { heading: 'The Birth of Building Codes', body: 'The Zhou dynasty formalized architecture through the ritual text Zhou Li (Rites of Zhou), which prescribed building dimensions, decoration, and layout according to strict social hierarchy. A feudal lord\'s main hall could not exceed the emperor\'s in width or height; the number of courtyards, the type of roof tiles, and even the color of painted columns were regulated by rank.\n\nThe rules were not abstract theory — bronze inscriptions record actual enforcement. The Zhengting Yin (Rectification Decree) of 9th-century BCE Zhou, preserved on the court bronze vessels, records how King Xuan sent officials to inspect the capitals of feudal lords and punish those whose palace plans exceeded their rank. Building law was constitutional law: architecture was the most visible map of who stood where in the social order, and this codification ensured it visually reinforced that hierarchy for the next three millennia.' },
-      { heading: 'The Siheyuan Courtyard House', body: 'The classic Chinese courtyard house took its mature form during the Zhou. A siheyuan consisted of buildings arranged around a central open space, with the main hall facing south to capture winter sunlight and deflect cold northern winds.\n\nSide halls housed family members according to seniority — the east hall outranking the west, since the rising sun faced the family\'s eldest son — while the southern building served as an entrance and servants\' quarters. Excavated Zhou foundations at Fengxi and Luoyang confirm the pattern: a raised main hall on a rammed-earth platform, flanking wings at right angles, and a gate house on the axis, all facing south. This layout was not merely practical — it embodied Confucian family hierarchy and the cosmological relationship between earth (the courtyard) and the surrounding structures, and it survives virtually unchanged in the siheyuan of modern Beijing.' },
-      { heading: 'City Walls and Defense', body: 'Zhou cities were defined by their walls — massive rammed-earth fortifications that could reach 10 meters in height and 20 meters in thickness at the base, so wide that chariots could be driven along the top. The capital city of Haojing was surrounded by a rectangular wall punctuated by gates aligned with the cardinal directions; the Kaogong Ji (Record of Trades) later codified the ideal: a square city, three gates per side, a central palace facing south, and an ancestral temple paired with an altar of soil and grain.\n\nWithin the walls, a grid of streets organized the city into wards, with the royal palace occupying the center. The Spring and Autumn period (770-476 BCE) multiplied these cities across the map — historical texts record more than 120 walled capitals in the Zhou world — and the wall-grid-palace pattern became the template for Chinese urban design, visible in cities from Chang\'an to Beijing.' }
+      { heading: 'The Birth of Building Codes', body: 'The Zhou dynasty formalized architecture through the ritual text Zhou Li (Rites of Zhou), which prescribed building dimensions, decoration, and layout according to strict social hierarchy. A feudal lord\'s main hall could not exceed the emperor\'s in width or height; the number of courtyards, the type of roof tiles, and even the color of painted columns were regulated by rank.\n\nThe rules were not abstract theory — bronze inscriptions record actual enforcement. The Zhengting Yin (Rectification Decree) of 9th-century BCE Zhou, preserved on the court bronze vessels, records how King Xuan sent officials to inspect the capitals of feudal lords and punish those whose palace plans exceeded their rank. Building law was constitutional law: architecture was the most visible map of who stood where in the social order, and this codification ensured it visually reinforced that hierarchy for the next three millennia.', callout: { icon: '📜', title: 'Read Building Codes in a Museum', body: 'Abstract ritual becomes tangible on bronze. The Shi Qiang Pan at Baoji Zhouyuan Museum records the Zhou royal lineage and governance philosophy — the documentary context for building rank laws. Meanwhile, the "Son of Heaven\'s Six-Horse Chariot" pit in Luoyang physically verifies the strict ritual hierarchy of Zhou emperors.', image: '/images/zhou-tile.webp' } },
+      { heading: 'The Siheyuan Courtyard House', body: 'The classic Chinese courtyard house took its mature form during the Zhou. A siheyuan consisted of buildings arranged around a central open space, with the main hall facing south to capture winter sunlight and deflect cold northern winds.\n\nSide halls housed family members according to seniority — the east hall outranking the west, since the rising sun faced the family\'s eldest son — while the southern building served as an entrance and servants\' quarters. Excavated Zhou foundations at Fengxi and Luoyang confirm the pattern: a raised main hall on a rammed-earth platform, flanking wings at right angles, and a gate house on the axis, all facing south. This layout was not merely practical — it embodied Confucian family hierarchy and the cosmological relationship between earth (the courtyard) and the surrounding structures, and it survives virtually unchanged in the siheyuan of modern Beijing.', callout: { icon: '🏛️', title: 'Walk on 3,000-Year-Old Foundations', body: 'Floor plans can only say so much. At Baoji Zhouyuan Museum, you can walk across the actual palace and temple foundations, feeling how the "front hall, rear chamber" layout was frozen into the earth three millennia ago.', image: '/images/zhou-zhouyuan-1.webp' } },
+      { heading: 'City Walls and Defense', body: 'Zhou cities were defined by their walls — massive rammed-earth fortifications that could reach 10 meters in height and 20 meters in thickness at the base, so wide that chariots could be driven along the top. The capital city of Haojing was surrounded by a rectangular wall punctuated by gates aligned with the cardinal directions; the Kaogong Ji (Record of Trades) later codified the ideal: a square city, three gates per side, a central palace facing south, and an ancestral temple paired with an altar of soil and grain.\n\nWithin the walls, a grid of streets organized the city into wards, with the royal palace occupying the center. The Spring and Autumn period (770-476 BCE) multiplied these cities across the map — historical texts record more than 120 walled capitals in the Zhou world — and the wall-grid-palace pattern became the template for Chinese urban design, visible in cities from Chang\'an to Beijing.', callout: { icon: '🧱', title: 'See the "Thickness" of Rank with Your Own Eyes', body: 'Beijing\'s ancient walls are long gone, but at the Luoyang Tianzi Jialiu Museum, you can examine the rammed-earth cross-section of the Eastern Zhou royal city wall and grasp the true scale of a "Son of Heaven\'s City."', image: '/images/zhou-luoyang-museum.webp' } }
     ]
   },
   {
@@ -57,7 +89,7 @@ export const dynasties: Dynasty[] = [
     name: 'Qin',
     years: '221-206 BCE',
     description: 'Though brief, the Qin dynasty transformed Chinese architecture through unprecedented scale and standardization. Qin Shi Huang unified not only the empire but its building practices. The Great Wall was linked into a continuous defensive system, and monumental projects like the Epang Palace and the emperor\'s mausoleum with its terracotta army demonstrated imperial ambition in built form. The Qin introduced standardized bricks and tiles across the empire, enforced uniform axle widths for roads, and built an extensive network of imperial highways stretching over 6,800 kilometers.',
-    summary: 'Unprecedented monumental scale, standardization, and the first unified Great Wall.',
+    summary: 'Qin Dynasty architecture laid the foundation for imperial China. Read about Xianyang Palace, early rammed-earth walls, and the architectural legacy of Qin Shi Huang.',
     features: ['Monumental imperial scale', 'Standardized building components', 'Great Wall unification', 'Underground tomb complexes', 'Avenue-grid urban planning'],
     faq: [
       { q: 'Why hasn\'t the Qin emperor\'s tomb been opened?', a: "Modern archaeologists have deliberately left the main chamber sealed. Records describe booby-trapped crossbows, mercury rivers, and ceiling constellations; excavation would also risk catastrophic damage to silk, lacquer, and painted surfaces that have rested undisturbed for 2,200 years. Remote sensing suggests the chamber is intact." },
@@ -97,7 +129,7 @@ export const dynasties: Dynasty[] = [
     name: 'Tang',
     years: '618-907 CE',
     description: 'The Tang dynasty represents the golden age of Chinese architecture. Bold proportions, sweeping roofs with dramatically overhanging eaves, and powerful, masculine structural expression define the style. The oldest surviving timber-frame building in China — the main hall of Nanchan Temple (782 CE) — dates from this period. Tang architecture influenced building traditions across East Asia, from Japan\'s Nara to Korea\'s Silla. The Tang capital of Chang\'an, with its population exceeding one million, was the largest and most meticulously planned city in the medieval world, laid out on a grid of 108 wards.',
-    summary: 'The golden age: bold proportions, dramatic eaves, and the oldest surviving timber structures.',
+    summary: 'Explore Tang Dynasty architecture: grand wooden halls, Buddhist pagodas, city planning, and iconic buildings like the Giant Wild Goose Pagoda. Includes photos and floor plans.',
     features: ['Bold, masculine proportions', 'Wide overhanging eaves', 'Seven-tier dougong systems', 'Red-and-white color scheme', 'Raised stone platforms (xumizuo)', 'Hipped roofs on important halls'],
     faq: [
       { q: 'Why do Tang buildings look so much more massive than later ones?', a: "Tang columns were thick, widely spaced, and crowned by huge structural dougong; roofs were broad and deep with pronounced overhangs. This muscular proportioning came from stone-and-timber structural honesty — by the Qing, brackets shrank and decoration took over, producing the finer, lighter look familiar from the Forbidden City." },
@@ -118,7 +150,7 @@ export const dynasties: Dynasty[] = [
     name: 'Song',
     years: '960-1279 CE',
     description: 'Song dynasty architecture turned from Tang boldness toward refined elegance. Roofs grew steeper with more pronounced upward-curving eaves, and dougong brackets became smaller but far more intricate — sometimes purely decorative. The Yingzao Fashi, an official building manual published in 1103, standardized construction across the empire. Garden architecture flourished as an art form. Song cities broke from the rigid ward system of earlier dynasties, developing vibrant commercial streets lined with multi-story shops, restaurants, and entertainment venues.',
-    summary: 'Refined elegance, intricate decorative brackets, and the first official building code.',
+    summary: 'Song Dynasty architecture is known for graceful roofs, detailed bracketing, and garden design. See examples like Yingxian Pagoda and Kaifeng\'s city layout.',
     features: ['Steeper, upward-curving eaves', 'Intricate multi-tier decorative dougong', 'Green-glazed roof tiles', 'Official building manual (Yingzao Fashi, 1103)', 'Flourishing garden architecture'],
     faq: [
       { q: 'Who wrote the Yingzao Fashi and why does it matter?', a: "Compiled in 1103 by Li Jie, a Song court official, it is the world's first complete state building code — covering foundations, timber sizing, brackets, roofs, decoration, and even labor costs. It standardizes the cai-fen modular system and remains the key reference for restoring Song-era buildings." },
@@ -138,7 +170,7 @@ export const dynasties: Dynasty[] = [
     name: 'Yuan',
     years: '1271-1368 CE',
     description: 'Under Mongol rule, Chinese architecture absorbed Central Asian and Tibetan influences. Tibetan Buddhist (Lamaist) architecture appeared in the capital at Dadu (Beijing), with white stupas and Tibetan-style temples. The cosmopolitan Yuan court brought Persian and Nepalese craftsmen, introducing new decorative motifs and structural techniques that enriched the Chinese architectural vocabulary. The Nepalese architect Araniko became the most celebrated builder of the Yuan period, designing the White Stupa of Miaoying Temple in Dadu, which still stands today.',
-    summary: 'Mongol rule brought Tibetan Buddhist forms, Central Asian influences, and cosmopolitan craftsmen.',
+    summary: 'Yuan Dynasty architecture blended Mongol and Chinese styles. Learn about Dadu (Beijing), Buddhist temples, and the architectural changes under Kublai Khan.',
     features: ['Tibetan Buddhist stupas and temples', 'Central Asian decorative motifs', 'Persian and Nepalese craftsmanship', 'White marble construction', 'Cosmopolitan architectural fusion'],
     faq: [
       { q: 'Who designed the White Stupa of Miaoying Temple?', a: "The Nepalese architect Araniko (Anige), invited to the Yuan court in 1260, designed the 50.9-meter white stupa completed in 1271 — a Tibetan-style dagoba with a bell-shaped body, thirteen-layered spire, and gilded crown. It is Beijing's oldest intact large structure." },
@@ -158,7 +190,7 @@ export const dynasties: Dynasty[] = [
     name: 'Ming',
     years: '1368-1644 CE',
     description: 'The Ming dynasty produced some of China\'s most iconic architecture, including the Forbidden City and the current form of the Great Wall. Building practices were standardized through the use of modular timber components (cai-fen system). Brick and stone construction became more common for walls and fortifications. Temple, palace, and tomb architecture reached their mature classical form. Ming architects refined the painted decoration system (caihua), developing a hierarchy of ornamental patterns — from dragon-and-phoenix motifs for imperial buildings to simple geometric designs for common structures.',
-    summary: 'The Forbidden City, standardized timber modules, and the mature classical style.',
+    summary: 'Ming Dynasty architecture produced the Forbidden City and the Great Wall. Explore standardized timber modules, brick fortifications, and the mature classical style.',
     features: ['Standardized modular timber system', 'Brick and stone fortifications', 'Yellow-glazed imperial roof tiles', 'Elaborate painted decoration (caihua)', 'Mature courtyard hierarchy'],
     faq: [
       { q: 'How was the Forbidden City built in only 14 years?', a: "The cai-fen modular system allowed components — columns, beams, brackets — to be prefabricated in distant workshops and assembled on site, like a giant kit. A workforce of up to one million timber cutters, brick makers, and craftsmen worked in parallel, and the flat riverside site speeded logistics." },
@@ -179,7 +211,7 @@ export const dynasties: Dynasty[] = [
     name: 'Qing',
     years: '1644-1912 CE',
     description: 'The Qing dynasty continued Ming traditions while adding increasing elaboration and ornament. Garden architecture reached its zenith at the Summer Palace and Chengde. Roof decoration became more ornate, with an expanded vocabulary of ridge beasts and glazed figures. The architectural treatise Gongcheng Zuofa Zeli (1734) further standardized official construction. The Qing also developed distinctive regional styles — notably the Manchu-influenced architecture of the northeast, with its raised kang beds, heated floors, and multi-generational courtyard compounds adapted to harsh winters.',
-    summary: 'Continued Ming forms with increasing ornamentation, garden architecture at its height.',
+    summary: 'Qing Dynasty architecture includes the Forbidden City, Summer Palace, and elaborate roof decorations. Explore the last imperial building tradition in China.',
     features: ['Highly ornate roof decoration', 'Expanded ridge beast vocabulary', 'Garden architecture zenith', 'Official construction manual (1734)', 'Manchu and Tibetan stylistic blends'],
     faq: [
       { q: 'Did the Summer Palace really use naval funds?', a: "Yes — when Cixi rebuilt the garden between 1886 and 1895, she drew on the Beiyang Fleet's modernization budget, a fact that scandalized reformers and contributed to China's disastrous defeat by Japan in 1895. The Marble Boat, built to resemble a steamer, became the symbol of the diversion." },
