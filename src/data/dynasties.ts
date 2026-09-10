@@ -4,6 +4,7 @@ export interface Dynasty {
   years: string;
   description: string;
   summary: string;
+  definition?: string;
   tagline?: string;
   features: string[];
   faq: { q: string; a: string }[];
@@ -130,6 +131,7 @@ export const dynasties: Dynasty[] = [
     years: '618-907 CE',
     description: 'The Tang dynasty represents the golden age of Chinese architecture. Bold proportions, sweeping roofs with dramatically overhanging eaves, and powerful, masculine structural expression define the style. The oldest surviving timber-frame building in China — the main hall of Nanchan Temple (782 CE) — dates from this period. Tang architecture influenced building traditions across East Asia, from Japan\'s Nara to Korea\'s Silla. The Tang capital of Chang\'an, with its population exceeding one million, was the largest and most meticulously planned city in the medieval world, laid out on a grid of 108 wards.',
     summary: 'Explore Tang Dynasty architecture: grand wooden halls, Buddhist pagodas, city planning, and iconic buildings like the Giant Wild Goose Pagoda. Includes photos and floor plans.',
+    definition: 'Tang dynasty architecture (618–907 CE) is the golden age of Chinese building — defined by bold, massive timber halls, wide overhanging eaves, structural dougong brackets, and the world\'s largest planned medieval city, Chang\'an, with its 108 grid-planned wards.',
     features: ['Bold, masculine proportions', 'Wide overhanging eaves', 'Seven-tier dougong systems', 'Red-and-white color scheme', 'Raised stone platforms (xumizuo)', 'Hipped roofs on important halls'],
     faq: [
       { q: 'Why do Tang buildings look so much more massive than later ones?', a: "Tang columns were thick, widely spaced, and crowned by huge structural dougong; roofs were broad and deep with pronounced overhangs. This muscular proportioning came from stone-and-timber structural honesty — by the Qing, brackets shrank and decoration took over, producing the finer, lighter look familiar from the Forbidden City." },
@@ -151,6 +153,7 @@ export const dynasties: Dynasty[] = [
     years: '960-1279 CE',
     description: 'Song dynasty architecture turned from Tang boldness toward refined elegance. Roofs grew steeper with more pronounced upward-curving eaves, and dougong brackets became smaller but far more intricate — sometimes purely decorative. The Yingzao Fashi, an official building manual published in 1103, standardized construction across the empire. Garden architecture flourished as an art form. Song cities broke from the rigid ward system of earlier dynasties, developing vibrant commercial streets lined with multi-story shops, restaurants, and entertainment venues.',
     summary: 'Song Dynasty architecture is known for graceful roofs, detailed bracketing, and garden design. See examples like Yingxian Pagoda and Kaifeng\'s city layout.',
+    definition: 'Song dynasty architecture (960–1279 CE) is the refined, elegant style that followed the Tang\'s bold grandeur — defined by steep, upward-curving roofs, intricate decorative dougong, green-glazed tiles, and the world\'s first state building code, the Yingzao Fashi (1103).',
     features: ['Steeper, upward-curving eaves', 'Intricate multi-tier decorative dougong', 'Green-glazed roof tiles', 'Official building manual (Yingzao Fashi, 1103)', 'Flourishing garden architecture'],
     faq: [
       { q: 'Who wrote the Yingzao Fashi and why does it matter?', a: "Compiled in 1103 by Li Jie, a Song court official, it is the world's first complete state building code — covering foundations, timber sizing, brackets, roofs, decoration, and even labor costs. It standardizes the cai-fen modular system and remains the key reference for restoring Song-era buildings." },

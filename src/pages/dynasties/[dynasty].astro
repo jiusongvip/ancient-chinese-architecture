@@ -51,6 +51,11 @@ const faqSchema = d.faq && d.faq.length > 0
       <h1 class="text-4xl md:text-5xl font-display font-bold text-ink tracking-tight mb-4">{d.name} Dynasty Architecture</h1>
       {d.tagline && <p class="text-base text-vermillion font-medium mb-3 italic">{d.tagline}</p>}
       <p class="text-lg text-ink-muted max-w-[70ch]">{d.summary}</p>
+      {d.definition && (
+        <p class="mt-6 text-xl text-ink leading-relaxed max-w-[70ch] pl-5 border-l-2 border-vermillion font-medium">
+          {d.definition}
+        </p>
+      )}
     </div>
   </section>
 
@@ -62,7 +67,7 @@ const faqSchema = d.faq && d.faq.length > 0
 
   <section class="py-12 px-6 bg-stone">
    <div class="max-w-[1400px] mx-auto">
-     <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12">
+     <div class="space-y-12">
        <div>
          <h2 class="font-display font-bold text-2xl text-ink mb-6">Overview</h2>
          <p class="text-ink-muted leading-relaxed text-lg">{d.description}</p>
@@ -97,19 +102,17 @@ const faqSchema = d.faq && d.faq.length > 0
           ))}
         </div>
      </div>
-     <div class="lg:col-span-2">
-       <div class="rounded-2xl border border-stone-dark/30 bg-stone-light p-6">
-         <h3 class="font-display font-semibold text-ink mb-4">Key Features</h3>
-         <ul class="space-y-3">
-            {d.features.map(f => (
-              <li class="flex items-start gap-3 text-sm text-ink-muted">
-                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-vermillion" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+     <div class="mt-10">
+       <h2 class="font-display font-bold text-2xl text-ink mb-5">{d.name} Dynasty Architecture Characteristics</h2>
+       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
+         {d.features.map(f => (
+           <li class="flex items-start gap-2.5 text-base text-ink-muted">
+             <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-vermillion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+             <span>{f}</span>
+           </li>
+         ))}
+       </ul>
+     </div>
     </div>
   </section>
 
@@ -125,6 +128,20 @@ const faqSchema = d.faq && d.faq.length > 0
             </a>
           ))}
         </div>
+      </div>
+    </section>
+  )}
+
+  {['song','tang'].includes(d.id) && (
+    <section class="py-8 px-6 bg-stone-light">
+      <div class="max-w-[1400px] mx-auto">
+        <a href="/compare/" class="group flex items-center justify-between gap-4 p-5 rounded-xl border border-stone-dark/30 bg-stone hover:border-vermillion/30 hover:shadow-sm transition-all">
+          <div>
+            <p class="font-display font-semibold text-ink group-hover:text-vermillion transition-colors">Compare {d.name} with other dynasties</p>
+            <p class="text-sm text-ink-muted mt-1">See roof style, bracket scale, color, gardens, and iconic monuments side-by-side across Tang, Song, Ming, and Qing.</p>
+          </div>
+          <svg class="w-5 h-5 text-vermillion flex-shrink-0 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </section>
   )}
